@@ -1,8 +1,8 @@
 /*	
-*	donate.js
+*   donate.js
 *   Author: Michael Gyarmathy, Web Developer Intern, Blackbaud
-*	Date: June 21, 2013
-*	Description: demonstration of luminateExtend.js and Luminate Donation API
+*   Date: June 21, 2013
+*   Description: demonstration of luminateExtend.js and Luminate Donation API
 */
 
 $(function() {

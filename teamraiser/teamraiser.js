@@ -1,8 +1,8 @@
 /*	
-*	teamraiser.js
+*   teamraiser.js
 *   Author: Michael Gyarmathy, Web Developer Intern, Blackbaud
-*	Date: June 21, 2013
-*	Description: demonstration of luminateExtend.js with Luminate TeamRaiser API and Google Maps
+*   Date: June 21, 2013
+*   Description: demonstration of luminateExtend.js with Luminate TeamRaiser API and Google Maps
 */
 
 $(function() {

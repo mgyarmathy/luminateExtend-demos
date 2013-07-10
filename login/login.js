@@ -1,8 +1,8 @@
 /*	
-*	login.js
+*   login.js
 *   Author: Michael Gyarmathy, Web Developer Intern, Blackbaud
-*	Date: June 21, 2013
-*	Description: demonstration of luminateExtend.js and Luminate Single Sign-on API
+*   Date: June 21, 2013
+*   Description: demonstration of luminateExtend.js and Luminate Single Sign-on API
 */
 
 $(function() {
