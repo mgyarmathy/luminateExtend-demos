@@ -1,44 +1,44 @@
 #main{
-	margin-top: 15px;
-	margin-bottom: 20px;
-	padding: 20px 0px 50px; 
-	background-color: #ddd;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 20px 0px 50px; 
+    background-color: #ddd;
 }
 
 #map-canvas {
-	margin-top: 10px;
-	height: 600px;
-	-webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
-	-moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
-	box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
+    margin-top: 10px;
+    height: 600px;
+    -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
+    -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
+    box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
 }
 
 #map-canvas img{
-	max-width: none;
+    max-width: none;
 }
 
 .markerInfo h4{
-	 border-bottom: 1px solid #ccc;
+     border-bottom: 1px solid #ccc;
 }
 
 .markerInfo table{
-	font-size: 14px;
+    font-size: 14px;
 }
 
 .markerInfo table td{
-	padding: 0 5px 0 0;
+    padding: 0 5px 0 0;
 }
 
 .markerInfo span.trlinks{
-	font-size: 12px;
+    font-size: 12px;
 }
 
 .gm-style label { width: auto; display: inline; }
 
 .row{
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 legend{
-	cursor:pointer;
+    cursor:pointer;
 }
