@@ -11,8 +11,8 @@ $(function() {
     luminateExtend.init({
         apiKey: '123456789', 
         path: {
-            nonsecure: 'http://vateam.convio.net/site/', 
-            secure: 'https://secure2.convio.net/vateam/site/'
+          nonsecure: 'http://vateam.convio.net/site/', 
+          secure: 'https://secure2.convio.net/vateam/site/'
         }
     });
     
@@ -26,10 +26,10 @@ $(function() {
     
     //initial api request for demo purposes
     luminateExtend.api.request({
-        api: 'TeamRaiser',
-        data: 'method=getTeamraisersByInfo&name=%&event_type=LE_demo',
-        requestType: 'GET',
-        callback: dropMarkers
+      api: 'TeamRaiser',
+      data: 'method=getTeamraisersByInfo&name=%&event_type=LE_demo',
+      requestType: 'GET',
+      callback: dropMarkers
     });
     
     //stores all Markers on map for purposes of clearing overlay
@@ -79,18 +79,20 @@ $(function() {
         
         //geocode locations from results + drop markers on map
         $.each(teamraisers, function(i, tr) {
-            setTimeout(function() { //adds a delay to throttle geocoding requests
+            setTimeout( function() { //adds a delay to throttle geocoding requests
                 if((tr.city == null) || (tr.state == null)) return 'skip';
                 var addr = tr.city + ' ' + tr.state;
                 if(tr.location_name) addr = tr.location_name + ' ' + addr;
                 geocoder.geocode( {'address' : addr }, function(results, status) {
                     if (status == google.maps.GeocoderStatus.OK){
+                        var date = luminateExtend.utils.simpleDateFormat(tr.event_date, 'MM/dd/yyyy');
+                        
                         var infowindow = new google.maps.InfoWindow({
-                            content:  '<div class="markerInfo"><h4>' + tr.name + '</h4>'
-                                    + '<table><tr><td><strong>Date:&nbsp;</strong><td>' + rfDate(tr.event_date) + '</td></tr>'
-                                    + '<tr><td><strong>Location:&nbsp;</strong><td>' + tr.location_name + '</td></tr></table>'
-                                    + '<span class="trlinks"><a href="' + tr.greeting_url + '">TeamRaiser Link</a> | '
-                                    + '<a href="http://maps.google.com/?q=' + addr + '&daddr=' + addr + '">Directions</a></span></div>'
+                            content: '<div class="markerInfo"><h4>' + tr.name + '</h4>'
+                                   + '<table><tr><td><strong>Date:&nbsp;</strong><td>' + date + '</td></tr>'
+                                   + '<tr><td><strong>Location:&nbsp;</strong><td>' + tr.location_name + '</td></tr></table>'
+                                   + '<span class="trlinks"><a href="' + tr.greeting_url + '">TeamRaiser Link</a> | '
+                                   + '<a href="http://maps.google.com/?q=' + addr + '&daddr=' + addr + '">Directions</a></span></div>'
                         });
                         var marker = new google.maps.Marker({
                             map: map,
@@ -130,16 +132,18 @@ $(function() {
         if($('#eventLocation').val().length > 0) addr = $('#eventLocation').val() + ' ' + addr;
         geocoder.geocode( {'address' : addr }, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK){
+                var date = luminateExtend.utils.simpleDateFormat($('#eventDate').val(), 'MM/dd/yyyy');
+            
                 //create content for infoWindow
-                var infoContent =  '<div class="markerInfo"><h4>' + $('#eventName').val() + '</h4>'
-                                 + '<table><tr><td><strong>Date:&nbsp;</strong><td>' + rfDate($('#eventDate').val()) + '</td></tr>';
+                var infoContent = '<div class="markerInfo"><h4>' + $('#eventName').val() + '</h4>'
+                                + '<table><tr><td><strong>Date:&nbsp;</strong><td>' + date + '</td></tr>';
                 //include location in infoContent if available
                 if($('#eventLocation').val().length > 0){
                    infoContent += '<tr><td><strong>Location:&nbsp;</strong><td>' + $('#eventLocation').val() + '</td></tr>';
                 }
                 //add TeamRaiser and directions links
-                infoContent +=  '</table><span class="trlinks"><a href="#">TeamRaiser Link</a> | '
-                              + '<a href="http://maps.google.com/?q='+addr+'&daddr='+addr+'">Directions</a></span></div>';
+                infoContent += '</table><span class="trlinks"><a href="#">TeamRaiser Link</a> | '
+                             + '<a href="http://maps.google.com/?q='+addr+'&daddr='+addr+'">Directions</a></span></div>';
                 var infowindow = new google.maps.InfoWindow({
                     content: infoContent
                 });
@@ -194,16 +198,7 @@ $(function() {
     });
     
     //legends act as buttons to open/close forms
-    $('legend').click(function() {
+    $('legend').click( function() {
         $(this).parent().children('fieldset').slideToggle();
     });
-
-    //helper function to reformat date from yyyy-MM-ddTHH:mm:ss to MM/dd/yyyy
-    function rfDate(date) {
-        var year = date.substring(0,4);
-        var month = date.substring(5,7);
-        var day = date.substring(8,10);
-        
-        return month + '/' + day + '/' + year;
-    }
 });
