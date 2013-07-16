@@ -6,6 +6,12 @@ label.error{
     color: red;
 }
 
+input[type="checkbox"],
+input[type="radio"] {
+    vertical-align: top;
+    margin-right: 5px;
+}
+
 #donate_form{
     background-color: #eee;
     margin-top: 20px;
