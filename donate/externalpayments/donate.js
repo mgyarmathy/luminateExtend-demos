@@ -138,18 +138,75 @@
     
     function donateCallback(data) {
         console.log(data);
+        //for Paypal/Amazon payments
         if (data.donationResponse && data.donationResponse.redirect) {
             window.location.href = data.donationResponse.redirect.url;
         }
+        //for credit card payments
         if (data.donationResponse && data.donationResponse.donation) {
-            $('#confirmation').append( 'Thank you ' + $('#firstname').val() + ' for your donation of ' + data.donationResponse.donation.amount.formatted + '!'
-                                     + '</br>Your confirmation code is: ' + data.donationResponse.donation.confirmation_code + '.');
+            
+            var today = luminateExtend.utils.simpleDateFormat(new Date(), 'MM/dd/yyyy');
+            
+            $('#confirmation').append('<div class="alert alert-success">' 
+                                     + 'Your donation has been processed!' 
+                                     + '</div>' 
+                                     + '<div class="transaction-summary">'
+                                     +   '<h3>Transaction Summary</h3>'
+                                     +   '<table class="table table-striped table-bordered">'
+                                     +     '<tr>'
+                                     +       '<td>Donation Date:</td>'
+                                     +       '<td><p>' + today + '</p></td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Donation Amount:</td>'
+                                     +       '<td>' + data.donationResponse.donation.amount.formatted + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Name:</td>'
+                                     +       '<td>' + $('#billing_name_first').val() + ' ' + $('#billing_name_last').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Street 1:</td>'
+                                     +       '<td>' + $('#billing_address_street1').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +     '<tr>'
+                                     +       '<td>City:</td>'
+                                     +       '<td>' + $('#billing_address_city').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>State/Province:</td>'
+                                     +       '<td>' + $('#billing_address_state').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>ZIP/Postal Code:</td>'
+                                     +        '<td>' + $('#billing_address_zip').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Email Address:</td>'
+                                     +       '<td>' + $('#donor_email').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Organization Name:</td>'
+                                     +       '<td>--insert organization name here--</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Tax ID:</td>'
+                                     +       '<td>12345678</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Confirmation Code:</td>'
+                                     +       '<td>' + data.donationResponse.donation.confirmation_code + '</td>'
+                                     +     '</tr>'
+                                     +   '</table>'
+                                     + '</div>'
+                                     );
         }
         else if (data.donationResponse && data.donationResponse.errors) {
             $('#confirmation').append('Error processing donation. <a href="#" onclick="location.reload(true); return false;">Try Again</a>');
         }
         $('#loading').hide();
-        $('#confirmation').fadeIn('slow').show();
+        $('#confirmation').fadeIn('slow');
     };
     
     // toggle API donate & startDonation methods

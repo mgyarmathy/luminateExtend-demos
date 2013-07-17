@@ -53,18 +53,18 @@
                 <input name="v" type="hidden" value="1.0" />
                 <!-- add hidden input for extproc -->
                 <input id="inptextproc" name="extproc" type="hidden" />
-                <!-- add PayPal/Amazon SUCCESS redrect -->
-                <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="payment-success.html" />
-                <!-- add PayPal/Amazon ERROR redrect -->
-                <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="payment-error.html" />
+                <!-- add PayPal/Amazon SUCCESS redrect (must be static url) -->
+                <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-success.html" />
+                <!-- add PayPal/Amazon ERROR redrect must be static url) -->
+                <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
                 <!-- Change/add donation form id and level ids below -->
                 <input type="hidden" name="form_id" value="13320">
                 <input type="hidden" name="validate" value="true">
 
                 <fieldset id="donation-information">
                     <h4>Donor Information</h4>
-                    <label>Name</label>
-					<input id="firstname" name="donor.name.first" type="text" placeholder="First" required>
+                    <label>Donor Name</label>
+					<input name="donor.name.first" type="text" placeholder="First" required>
                     <input name="donor.name.last" type="text" placeholder="Last" required>
                     <label>Email Address</label>
                     <input id="donor_email" type="email" class="" name="donor.email" placeholder="Email" required>
@@ -78,9 +78,9 @@
                 </fieldset>
                 
                 <h4>Billing Information</h4>
-                <label>Name</label>
+                <label>Billing Name</label>
                 <input id="billing_name_first" type="text" class="" name="billing.name.first" placeholder="First" required> 
-                <input  id="billing_name_last" type="text" class="" name="billing.name.last" placeholder="Last" required>
+                <input id="billing_name_last" type="text" class="" name="billing.name.last" placeholder="Last" required>
                 <label>Address</label>
                 <input id="billing_address_street1" type="text" class="input-xlarge" name="billing.address.street1" placeholder="Street 1" required>
                 <br>
@@ -447,6 +447,9 @@
         </div>
         <div id="errorBox" class="span2" style="padding-top:40px;"></div>
     </div>
+    <div class="row">
+            <div id="confirmation" class="span8 offset2 hide"></div>
+        </div>
     
     <script type="text/javascript">
 		//display donation form
