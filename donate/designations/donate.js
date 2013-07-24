@@ -61,14 +61,14 @@
                                   + '<fieldset id="writeInDesignation" style="display:none">'
                                   +   '<label style="display:inline-block; width: 53%">Program Name</label>'
                                   +   '<label style="display:inline-block;">Amount</label>'
-                                  +   '<input type="text" name="designated_write_in.0.name." style="width: 255px; margin-right: 10px;" placeholder="Name">'
+                                  +   '<input type="text" name="designated_write_in.10.name" style="width: 255px; margin-right: 10px;" placeholder="Name">'
                                   +   '<div class="input-prepend input-append">'
                                   +     '<span class="add-on">$</span>'
-                                  +     '<input class="input-small designated-amount" style="text-align:right" name="designated_write_in.0.amount" type="text" value="0">'
+                                  +     '<input class="input-small designated-amount" style="text-align:right" name="designated_write_in.10.amount" type="text" value="0">'
                                   +     '<span class="add-on">.00</span>'
                                   +   '</div>'
                                   +   '<label>Contact Information</label>'
-                                  +   '<textarea rows=3 name="designated_write_in.0.contact"></textarea>'
+                                  +   '<textarea rows=3 name="designated_write_in.10.contact"></textarea>'
                                   + '</fieldset>'
                                   );
             $('#writeIn').on('change', function(){
