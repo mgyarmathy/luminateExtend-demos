@@ -52,7 +52,7 @@
                 <form id="donate_form" class="luminateApi donation-form" name="api_donation_form" method="POST" 
                     action="https://secure2.convio.net/vateam/site/CRDonationAPI" style="display:none;"
                     data-luminateApi="{'callback': 'donateCallback'}" >
-                <legend>Donation Form - Dynamic with External Payments</legend>
+                <legend>Donation Form - Dynamic with Designations</legend>
                 <input name="method" type="hidden" value="donate" />
                 <input name="v" type="hidden" value="1.0" />
                 <!-- add hidden input for extproc -->
@@ -62,7 +62,7 @@
                 <!-- add PayPal/Amazon ERROR redrect must be static url) -->
                 <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
                 <!-- Change/add donation form id and level ids below -->
-                <input type="hidden" name="form_id" value="13320">
+                <input type="hidden" name="form_id" value="13700">
                 <input type="hidden" name="validate" value="true">
 
                 <fieldset id="donation-information">
@@ -75,9 +75,15 @@
                     <!-- <label>
                         <input type="checkbox" checked> Yes, I'd like to receive email from xxx
                     </label> -->
-                    <fieldset id="donation-amounts">
-                        <label>Amount</label>
-                        <!-- donation levels generated here -->
+                    <fieldset id="designees">
+                        <h4>Allocate Your Gift</h4>
+                        <label style="font-size:10px; color:#0088cc;">
+                            You can allocate your gift to different designees using the drop-down lists below.
+                        </label>
+                        <label style="display:inline-block; width: 52%">Available Programs</label>
+                        <label style="display:inline-block;">Amount</label>
+                        </br>
+                        <!-- designees generated here -->
                     </fieldset>
                 </fieldset>
                 
@@ -410,51 +416,53 @@
                   <option value="Zambia">Zambia</option> 
                   <option value="Zimbabwe">Zimbabwe</option>
                 </select>
-                <h4>Payment Information</h4>
-                <label>Payment Type</label> 
-                <select id="payment_type" name="payment_type" class="" required>
-                  <option>Select Payment Method</option>
-                 </select>
-                <div id="credit-details">
-                  <label style="padding-top:5px">Card Number</label>
-                    <input name="card_number" type="text">
-                    <label>Expiration Date</label>
-                    <select name="card_exp_date_month" class="input-mini">
-                      <option value="1">01</option>
-                      <option value="2">02</option>
-                      <option value="3">03</option>
-                      <option value="4">04</option>
-                      <option value="5">05</option>
-                      <option value="6">06</option>
-                      <option value="7">07</option>
-                      <option value="8">08</option>
-                      <option value="9">09</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                    </select>
-                    <select name="card_exp_date_year" class="input-small">
-                      <option value="2013">2013</option>
-                      <option value="2014">2014</option>
-                      <option value="2015">2015</option>
-                      <option value="2016">2016</option>
-                      <option value="2017">2017</option>
-                      <option value="2018">2018</option>
-                      <option value="2019">2019</option>
-                      <option value="2020">2020</option>
-                    </select>
-                    <label>CVV</label>
-                    <input name="card_cvv" type="text">
-                </div>
+                <fieldset id="payment-information">
+                    <h4>Payment Information</h4>
+                    <label>Payment Type</label> 
+                    <select id="payment_type" name="payment_type" class="" required>
+                      <option>Select Payment Method</option>
+                     </select>
+                    <div id="credit-details">
+                      <label style="padding-top:5px">Card Number</label>
+                        <input name="card_number" type="text">
+                        <label>Expiration Date</label>
+                        <select name="card_exp_date_month" class="input-mini">
+                          <option value="1">01</option>
+                          <option value="2">02</option>
+                          <option value="3">03</option>
+                          <option value="4">04</option>
+                          <option value="5">05</option>
+                          <option value="6">06</option>
+                          <option value="7">07</option>
+                          <option value="8">08</option>
+                          <option value="9">09</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>
+                        <select name="card_exp_date_year" class="input-small">
+                          <option value="2013">2013</option>
+                          <option value="2014">2014</option>
+                          <option value="2015">2015</option>
+                          <option value="2016">2016</option>
+                          <option value="2017">2017</option>
+                          <option value="2018">2018</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                        </select>
+                        <label>CVV</label>
+                        <input name="card_cvv" type="text">
+                    </div>
+                </fieldset>
                 <button type="submit" id="donate-submit" class="btn btn-large btn-primary" style="display:block;">Submit</button>
             </form>
+            </div>
+            <div id="errorBox" class="span2" style="padding-top:40px;"></div>
         </div>
-        <div id="errorBox" class="span2" style="padding-top:40px;"></div>
-    </div>
-    <div class="row">
+        <div class="row">
             <div id="confirmation" class="span8 offset2 hide"></div>
         </div>
-    
+    </div>
     <script type="text/javascript">
 		//display donation form
 		$("#donate_form").fadeIn('slow');
