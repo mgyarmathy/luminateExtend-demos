@@ -12,10 +12,10 @@
       }
     });
     
-        luminateExtend.api({
-          api: 'donation', 
-          data: 'method=getDesignees&form_id=' + $('input[name="form_id"]').val(), 
-          callback: addDesignees
+    luminateExtend.api({
+      api: 'donation', 
+      data: 'method=getDesignees&form_id=' + $('input[name="form_id"]').val(), 
+      callback: addDesignees
     });
     
     function addDesignees(data){
