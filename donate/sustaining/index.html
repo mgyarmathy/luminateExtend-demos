@@ -54,7 +54,7 @@
                 <form id="donate_form" class="luminateApi donation-form" name="api_donation_form" method="POST" 
                     action="https://secure2.convio.net/vateam/site/CRDonationAPI" style="display:none;"
                     data-luminateApi="{'callback': 'donateCallback'}" >
-                <legend>Donation Form - Dynamic with External Payments</legend>
+                <legend>Donation Form - Dynamic with Sustaining Payments</legend>
                 <input name="method" type="hidden" value="donate" />
                 <input name="v" type="hidden" value="1.0" />
                 <!-- add hidden input for extproc -->
@@ -64,7 +64,7 @@
                 <!-- add PayPal/Amazon ERROR redrect must be static url) -->
                 <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
                 <!-- Change/add donation form id and level ids below -->
-                <input type="hidden" name="form_id" value="13320">
+                <input type="hidden" name="form_id" value="13720">
                 <input type="hidden" name="validate" value="true">
 
                 <fieldset id="donation-information">
@@ -448,6 +448,7 @@
                     <label>CVV</label>
                     <input name="card_cvv" type="text">
                 </div>
+                <div id="total" style="margin-bottom: 10px;">Total: $0.00</div>
                 <button type="submit" id="donate-submit" class="btn btn-large btn-primary" style="display:block;">Submit</button>
             </form>
         </div>
