@@ -110,8 +110,10 @@
         $('.updateTotal').on('change', function(){
             var total = 0,
                 level_amount;
-                
-            if($('input[name="level_id"]:checked').is('#other')){
+            if($('input[name="level_id"]:checked').length == 0){
+                return;
+            }
+            else if($('input[name="level_id"]:checked').is('#other')){
                 level_amount = parseInt($('input[name="other_amount"]').val());
             }
             else{
