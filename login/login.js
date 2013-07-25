@@ -18,9 +18,9 @@ $(function() {
     
     //log out any existing session on page load
     luminateExtend.api.request({
-      api: 'CRconsAPI', 
+      api: 'cons', 
       data: 'method=logout',
-      useHTTPS: true,
+      useHTTPS: false,
     });
     
     //perform login via AJAX request
@@ -31,13 +31,12 @@ $(function() {
           data: 'method=login',
           form: '#login_form',
           requestType: 'POST',
-          useHTTPS: true
+          useHTTPS: false
         });
     }
     
     //callback function after login
     function loginCallback(data) {
-        console.log(data);
         $('#login-failed').fadeOut();
         if(data.errorResponse){ //failed login
             if($('#login-failed').length == 0){//add login-failed alert if previously not displayed
