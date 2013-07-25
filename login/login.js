@@ -18,7 +18,7 @@ $(function() {
     
     //log out any existing session on page load
     luminateExtend.api.request({
-      api: 'cons', 
+      api: 'CRconsAPI', 
       data: 'method=logout',
       useHTTPS: true,
     });
@@ -37,6 +37,7 @@ $(function() {
     
     //callback function after login
     function loginCallback(data) {
+        console.log(data);
         $('#login-failed').fadeOut();
         if(data.errorResponse){ //failed login
             if($('#login-failed').length == 0){//add login-failed alert if previously not displayed
