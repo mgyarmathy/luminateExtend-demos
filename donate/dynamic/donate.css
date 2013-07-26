@@ -1,3 +1,7 @@
+label{
+    cursor: default;
+}
+
 input.error{
     background-color: #fff;
 }

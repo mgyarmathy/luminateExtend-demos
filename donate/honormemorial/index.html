@@ -66,16 +66,21 @@
                 <!-- Change/add donation form id and level ids below -->
                 <input type="hidden" name="form_id" value="13241">
                 <input type="hidden" name="validate" value="true">
-
-                <fieldset id="honoree-information">
-                    <h4>Honoree Information</h4>
+                
+                <fieldset id="donation-amounts">
+                    <h4>Gift Information</h4>
+                    <label>Amount</label>
+                    <!-- donation levels generated here -->
+                </fieldset>
+                <h4>Honoree Information</h4>
+                <label><input type="checkbox" id="makeTribute" class="ignore">Yes, this is an honor or memorial gift</label>
+                <fieldset id="honoree-information" style="display:none;">
                     <label style="font-size:10px; color:#0088cc;">
                             (choose the memorial gift option only if the person you are 
                             honoring is deceased.)
                     </label>
                     <label>Honor Gift Type</label>
                     <select name="tribute.type" class="input-medium">
-                        <option></option>
                         <option value="memorial">In Memory Of</option>
                         <option value="tribute">In Honor Of</option>
                     </select>
@@ -84,10 +89,40 @@
                     <!-- <label>
                         <input type="checkbox" checked> Yes, I'd like to receive email from xxx
                     </label> -->
-                    <fieldset id="donation-amounts">
-                        <h4>Gift Information</h4>
-                        <label>Amount</label>
-                        <!-- donation levels generated here -->
+                    <fieldset id="ecard" style="margin-bottom:15px">
+                        <h4>eCard</h4>
+                        <label style="margin-bottom: 10px;">
+                            <input id="ecard-send" class="ignore" type="checkbox">
+                            <input type="hidden" name="ecard.send" value="false">
+                            Yes, I would like to send an eCard.
+                            </br>
+                        </label>
+                        <fieldset id="ecard-info" style="display:none">
+                            <label>Send eCard on</label>
+                            <input type="text" name="ecard.send_date" class="input-small" maxlength="10" placeholder="YYYY-MM-DD">
+                            <label>eCard Recipients</label>
+                            <textarea id="ecard-recipients" class="input-xlarge" rows="2" name="ecard.recipients" value=""></textarea>
+                            <label style="font-size:10px; color:#0088cc;">
+                                (separate each recipient with a comma)
+                            </label>
+                            <label>Select an eCard</label>
+                            <!-- manually put in eCard values -->
+                            <div style="text-align: center; display:inline-block;">
+                                <img src="http://i.imgur.com/RqCWYQl.jpg" />
+                                </br>
+                                <input type="radio" name="ecard.id" value="1901">
+                            </div>
+                            <div style="text-align: center; display:inline-block;">
+                                <img src="http://i.imgur.com/RHRe58y.png" />
+                                </br>
+                                <input type="radio" name="ecard.id" value="1801">
+                            </div>
+                            <label>eCard Subject</label>
+                            <input id="ecard-subject" name="ecard.subject" class="input-xlarge" value="">
+                            <label>eCard Message</label>
+                            <textarea id="ecard-message" class="input-xlarge" rows="4" name="ecard.message"></textarea>
+                            <button id="ecard-preview" class="btn" style="display:block;">eCard Preview</button>
+                        </fieldset>
                     </fieldset>
                 </fieldset>
                 <fieldset id="billing-information">
@@ -461,40 +496,7 @@
                         <input name="card_cvv" type="text">
                     </div>
                 </fieldset>
-                <fieldset id="ecard" style="margin-bottom:15px">
-                    <h4>eCard</h4>
-                    <label style="margin-bottom: 10px;">
-                        <input id="ecard-send" type="checkbox">
-                        <input type="hidden" name="ecard.send" value="false">
-                        Yes, I would like to send an eCard.
-                        </br>
-                    </label>
-                    <fieldset id="ecard-info" style="display:none">
-                        <label>Send eCard on</label>
-                        <input type="date" name="ecard.send_date">
-                        <label>eCard Recipients</label>
-                        <textarea class="input-xlarge" rows="2" name="ecard.recipients"></textarea>
-                        <label style="font-size:10px; color:#0088cc;">
-                            (separate each recipient with a comma)
-                        </label>
-                        <label>Select an eCard</label>
-                        <!-- manually put in eCard values -->
-                        <div style="text-align: center; display:inline-block;">
-                            <img src="http://i.imgur.com/RqCWYQl.jpg" />
-                            </br>
-                            <input type="radio" name="ecard.id" value="1901">
-                        </div>
-                        <div style="text-align: center; display:inline-block;">
-                            <img src="http://i.imgur.com/RHRe58y.png" />
-                            </br>
-                            <input type="radio" name="ecard.id" value="1801">
-                        </div>
-                        <label>eCard Subject</label>
-                        <input name="ecard.subject" class="input-xlarge">
-                        <label>eCard Message</label>
-                        <textarea class="input-xlarge" rows="4" name="ecard.message"></textarea>
-                    </fieldset>
-                </fieldset>
+                
                 <button type="submit" id="donate-submit" class="btn btn-large btn-primary" style="display:block;">Submit</button>
             </form>
         </div>

@@ -73,10 +73,10 @@
                                   );
             $('#writeIn').on('change', function(){
                 if($(this).is(':checked')){
-                    $('#writeInDesignation').slideDown();
+                    $('#writeInDesignation').show();
                 }
                 else{
-                    $('#writeInDesignation').slideUp();
+                    $('#writeInDesignation').hide();
                 }
             });
         }

@@ -66,22 +66,45 @@
                                              +   '<input class="updateTotal" type="radio" name="giftType" value="oneTime">'
                                              +   'One-time Gift'
                                              + '</label>'
-                                             + '<fieldset id="sustaining-info">'
+                                             )
+                                      /* default range slider */
+                                      .append( '<fieldset id="sustaining-info">'
                                              +   '<label>Gift Duration</label>'
                                              +   '<label id="duration-label" style="display:inline-block; width:115px; margin-right:5px; text-align:center;">Forever (monthly)</label>'
                                              +   '<input id="duration" class="updateTotal" type="range" min="2" max="13" value="13">'
                                              + '</fieldset>'
-                                             + '<input type="hidden" name="sustaining.frequency" value="monthly">'
+                                             )
+                                      /* alternative select box      
+                                      .append( '<fieldset id="sustaining-info">'
+                                             +   '<label>Gift Duration</label>'
+                                             +   '<select id="duration" class="updateTotal">'
+                                             +     '<option value="2">2 months</option>'
+                                             +     '<option value="3">3 months</option>'
+                                             +     '<option value="4">4 months</option>'
+                                             +     '<option value="5">5 months</option>'
+                                             +     '<option value="6">6 months</option>'
+                                             +     '<option value="7">7 months</option>'
+                                             +     '<option value="8">8 months</option>'
+                                             +     '<option value="9">9 months</option>'
+                                             +     '<option value="10">10 months</option>'
+                                             +     '<option value="11">11 months</option>'
+                                             +     '<option value="12">12 months</option>'
+                                             +     '<option value="13" selected>Forever (monthly)</option>'
+                                             +   '</select>'
+                                             + '</fieldset>'
+                                             )      
+                                      */
+                                      .append( '<input type="hidden" name="sustaining.frequency" value="monthly">'
                                              + '<input type="hidden" name="sustaining.duration" value="0">'
                                              );
                                              
             $('input[name="giftType"]').on('change', function(){
                 if($(this).val() === "sustaining"){
-                    $('#sustaining-info').slideDown();
+                    $('#sustaining-info').show();
                     $('input[name="sustaining.frequency"]').val('monthly');
                 }
                 else if($(this).val() === "oneTime"){
-                    $('#sustaining-info').slideUp();
+                    $('#sustaining-info').hide();
                     $('input[name="sustaining.frequency"]').val('one-time');
                 }
             });

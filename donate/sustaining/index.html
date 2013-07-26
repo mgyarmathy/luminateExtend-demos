@@ -25,6 +25,17 @@
     <!-- page-specific javascript -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <script type="text/javascript" src="donate.js"></script>
+    
+    <script type="text/javascript" src="modernizr.min.js"></script>
+    <script>
+        //test whether or not to use range slider polyfill
+        Modernizr.load({
+          test: Modernizr.range,
+          nope: 'html5slider.js'
+        });
+    </script>
+    
+    
 </head>
 
 <body>

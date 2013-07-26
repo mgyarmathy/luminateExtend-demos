@@ -58,11 +58,11 @@
         
         //handle autorepeat donation option
 		if (data.getDonationFormInfoResponse.supportsLevelAutorepeat == 'true') {
-			$('#honoree-information').append( '<label>'
-											+    '<input name="autorepeat" type="checkbox">'
-											+    'Please repeat this gift automatically every month.'
-											+ '</label>'
-                                            );
+			$('#donation-amounts').append( '<label>'
+                                         +    '<input name="autorepeat" type="checkbox">'
+                                         +    'Please repeat this gift automatically every month.'
+                                         + '</label>'
+                                         );
 		}
 
         // generate payment options - add to "Select Payment Method dropdown"
@@ -88,6 +88,8 @@
                  , 'other_amount': { min: 5 //to handle $5-minimum to prevent fraud
                                    , number: true
                                    }
+                 , 'ecard.send_date': { date: true
+                                      }
                  , 'card_number': { required: { depends: requireCreditCardInfo 
                                               }
                                   , creditcard: { depends: requireCreditCardInfo 
@@ -97,8 +99,8 @@
                                            }
                                }
                  }
-        , messages: { 'donor.name.first' : 'Donor first name required.'
-                    , 'donor.name.last' : 'Donor last name required.'
+        , messages: { 'tribute.honoree.name.full' : 'Honoree name required'
+                    , 'ecard.send_date' : 'Please use the following date format: YYYY-MM-DD'
                     , 'donor.email' : 'Please enter a valid email address.'
                     , 'other_amount' : 'Please enter an amount of at least $5.00.'
                     , 'billing.name.first' : 'Billing first name required.'
@@ -109,6 +111,7 @@
                     , 'card_number': 'Valid credit card number required.'
                     , 'card_cvv': 'Credit card CVV required.'
                     }
+        , ignore: '.ignore'
         , errorLabelContainer: '#errorBox'
         , wrapper: 'span'
         , submitHandler: submitForm
@@ -233,6 +236,30 @@
                 $(".donation-form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
+        }
+    });
+    
+    $('#ecard-preview').click(function(e){
+        e.preventDefault();
+        var url = luminateExtend.global.path.nonsecure
+                + 'Ecard?taf_preview=true&taf_popup_preview_donations=true&mfc_popup=true'
+                + '&ecard_id=' + $('input[name="ecard.id"]:checked').val()
+                + '&stationery_layout_id=' + $('input[name="ecard.id"]:checked').val()
+                + '&message=' + $('#ecard-message').val()
+                + '&subject=' + $('#ecard-subject').val()
+                + '&sendtoemail=' + $('#ecard-recipients').val()
+                + '&cons_info_component=true'
+        newwindow=window.open(url,'preview','height=600,width=600');
+        if (window.focus) {newwindow.focus()}
+        return false;
+    });
+    
+    $('#makeTribute').on('change', function(){
+        if($(this).is(':checked')){
+            $('#honoree-information').show();
+        }
+        else{
+            $('#honoree-information').hide();
         }
     });
     
