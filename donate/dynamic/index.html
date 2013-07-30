@@ -7,6 +7,18 @@
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
     <link rel="stylesheet" href="donate.css">
+    <style>
+        #main {
+          margin-top: 15px;
+          margin-bottom: 20px;
+          padding: 20px 0px 20px; 
+          background-color: #ddd;
+        }
+    </style>
+    
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     
     <!-- JS libraries -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -24,7 +36,7 @@
             <div class="span12">
                 <h1>External Donation Forms</h1>
                 <nav>
-                    <a href="../dynamic/index.html?form_id=13320">Dynamic</a>
+                    <a href="../dynamic">Dynamic</a>
                     |
                     <a href="../customamount">Custom Amount</a>
                     |
@@ -41,13 +53,16 @@
         </div>
         <div class="row">
             <div id="donate" class="span6 offset3">
-                <form id="donate_form" style="display:none;">
+                <form id="donate_form">
                 
                     <!-- Hidden Inputs -->
+                    <input name="method" type="hidden" value="donate">
+                    <input name="v" type="hidden" value="1.0">
+                    <input type="hidden" name="form_id" value="13320">
                     <!-- processing options -->
-                    <input type="hidden" name="validate" id="validate" value="true" />
-                    <input type="hidden" name="send_receipt" id="send_receipt" value="true" />
-                    <input type="hidden" name="send_registration_email" id="send_registration_email" value="false" />				
+                    <input type="hidden" name="validate" id="validate" value="true">
+                    <input type="hidden" name="send_receipt" id="send_receipt" value="true">
+                    <input type="hidden" name="send_registration_email" id="send_registration_email" value="false">				
                     
                     <legend>Donation Form - Dynamically Created</legend>
                     <fieldset id="donation-information">
@@ -403,9 +418,8 @@
                         </select>
                         <label>CVV</label>
                         <input name="card_cvv" type="text" required>
-                        </br>
                       </fieldset>
-                      <button id="donate_submit" class="btn btn-large btn-primary" style="margin-top:5px;">Submit</button>
+                      <button id="donate_submit" class="btn btn-large btn-primary">Submit</button>
                     </form>
             </div>
             <div id="errorBox" class="span2" style="padding-top:40px;"></div>
@@ -414,10 +428,5 @@
             <div id="confirmation" class="span8 offset2 hide"></div>
         </div>
     </div>
-    
-    <script type="text/javascript">
-        //display donation form
-        $("#donate_form").fadeIn('slow');
-    </script>
 </body>
 </html>

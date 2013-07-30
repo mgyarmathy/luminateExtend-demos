@@ -1,42 +1,57 @@
 label{
-    cursor: default;
+  cursor: default;
 }
 
 input.error {
-	background-color: #fff;
+  background-color: #fff;
 }
 
 label.error {
-	color: red;
+  color: red;
+}
+
+label.notice {
+  font-size: 10px;
+  color: #0088cc;
+  display: block;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-    vertical-align: top;
-    margin-right: 5px;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+#donate-submit {
+  display: block;
 }
 
 #donate_form {
-	background-color: #eee;
-	margin-top: 20px;
-	padding: 20px;
-	-webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
-	-moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
-	box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
+  background-color: #eee;
+  margin-top: 20px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
+  box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
+}
+
+#designees label{
+  display: inline-block;
+}
+
+#programs{
+  width: 52%;
+}
+
+#total{
+  margin-bottom: 10px;
 }
 
 #confirmation {
-	background-color: #eee;
-	margin-top: 20px;
-	padding: 20px;
-	-webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
-	-moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
-	box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
-}
-
-#main {
-	margin-top: 15px;
-	margin-bottom: 20px;
-	padding: 20px 0px 20px; 
-	background-color: #ddd;
+  background-color: #eee;
+  margin-top: 20px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
+  box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
 }

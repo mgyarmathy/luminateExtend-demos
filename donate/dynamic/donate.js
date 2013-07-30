@@ -16,22 +16,15 @@ $(function() {
         }
     });	
     
-    //get form id from url query string
-    var form_id = getQueryVariable('form_id');
-    
-    //add form id as hidden input field on the donation form
-    $('#donate_form').prepend('<input type="hidden" name="form_id" id="form_id" value="' + form_id + '" />');
-    
     luminateExtend.api.request({
         api: 'CRDonationAPI',
-        data: 'method=getDonationFormInfo&form_id=' + form_id,
+        data: 'method=getDonationFormInfo&form_id=' + $('input[name="form_id"]').val(),
         callback: addFormInfo,
         useHTTPS: true,
         requestType: 'GET'
     });
     
     function addFormInfo(data){
-        console.log(data);
         
         //generate donation levels on the form
         var donationLevels = luminateExtend.utils.ensureArray(data.getDonationFormInfoResponse.donationLevels.donationLevel);
@@ -154,16 +147,5 @@ $(function() {
             submitForm();
         }
     });
-    
-    //used to get variables from query string in url
-    function getQueryVariable(variable)
-    {
-           var query = window.location.search.substring(1);
-           var vars = query.split("&");
-           for (var i=0;i<vars.length;i++) {
-                   var pair = vars[i].split("=");
-                   if(pair[0] == variable){return pair[1];}
-           }
-           return(false);
-    }
+
 });

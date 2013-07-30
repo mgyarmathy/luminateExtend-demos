@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
     <link rel="stylesheet" href="donate.css">
     <style type="text/css">
-    
-        /* PayPal / Amazon styles */
-        #credit-details {display:none;}
-
+        #main {
+          margin-top: 15px;
+          margin-bottom: 20px;
+          padding: 20px 0px 20px; 
+          background-color: #ddd;
+        }
     </style>
+    
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -34,7 +37,7 @@
             <div class="span12">
                 <h1>External Donation Forms</h1>
                 <nav>
-                    <a href="../dynamic/index.html?form_id=13320">Dynamic</a>
+                    <a href="../dynamic">Dynamic</a>
                     |
                     <a href="../customamount">Custom Amount</a>
                     |
@@ -51,9 +54,7 @@
         </div>
         <div class="row">
 			<div id="donate" class="span6 offset3">
-                <form id="donate_form" class="luminateApi donation-form" name="api_donation_form" method="POST" 
-                    action="https://secure2.convio.net/vateam/site/CRDonationAPI" style="display:none;"
-                    data-luminateApi="{'callback': 'donateCallback'}" >
+                <form id="donate_form">
                 <legend>Donation Form - Dynamic with Designations</legend>
                 <input name="method" type="hidden" value="donate" />
                 <input name="v" type="hidden" value="1.0" />
@@ -79,11 +80,11 @@
                     </label> -->
                     <fieldset id="designees">
                         <h4>Allocate Your Gift</h4>
-                        <label style="font-size:10px; color:#0088cc;">
+                        <label class="notice">
                             You can allocate your gift to different designees using the drop-down lists below.
                         </label>
-                        <label style="display:inline-block; width: 52%">Available Programs</label>
-                        <label style="display:inline-block;">Amount</label>
+                        <label id="programs">Available Programs</label>
+                        <label>Amount</label>
                         </br>
                         <!-- designees generated here -->
                     </fieldset>
@@ -91,12 +92,12 @@
                 
                 <h4>Billing Information</h4>
                 <label>Billing Name</label>
-                <input id="billing_name_first" type="text" class="" name="billing.name.first" placeholder="First" required> 
-                <input id="billing_name_last" type="text" class="" name="billing.name.last" placeholder="Last" required>
+                <input id="billing_name_first" type="text" name="billing.name.first" placeholder="First" required> 
+                <input id="billing_name_last" type="text" name="billing.name.last" placeholder="Last" required>
                 <label>Address</label>
                 <input id="billing_address_street1" type="text" class="input-xlarge" name="billing.address.street1" placeholder="Street 1" required>
                 <br>
-                <input id="billing_address_city" type="text" class="" name="billing.address.city" placeholder="City" required> 
+                <input id="billing_address_city" type="text" name="billing.address.city" placeholder="City" required> 
                 <select id="billing_address_state" class="input-medium" name="billing.address.state" required>
                   <option>State</option>
                   <option value="AK">AK</option>
@@ -421,10 +422,10 @@
                 <fieldset id="payment-information">
                     <h4>Payment Information</h4>
                     <label>Payment Type</label> 
-                    <select id="payment_type" name="payment_type" class="" required>
+                    <select id="payment_type" name="payment_type" required>
                       <option>Select Payment Method</option>
                      </select>
-                    <div id="credit-details">
+                    <fieldset id="credit-details" style="display:none;">
                       <label style="padding-top:5px">Card Number</label>
                         <input name="card_number" type="text">
                         <label>Expiration Date</label>
@@ -454,9 +455,10 @@
                         </select>
                         <label>CVV</label>
                         <input name="card_cvv" type="text">
-                    </div>
+                    </fieldset>
                 </fieldset>
-                <button type="submit" id="donate-submit" class="btn btn-large btn-primary" style="display:block;">Submit</button>
+                <div id="total">Total: $0.00</div>
+                <button type="submit" id="donate-submit" class="btn btn-large btn-primary">Submit</button>
             </form>
             </div>
             <div id="errorBox" class="span2" style="padding-top:40px;"></div>
@@ -465,9 +467,5 @@
             <div id="confirmation" class="span8 offset2 hide"></div>
         </div>
     </div>
-    <script type="text/javascript">
-		//display donation form
-		$("#donate_form").fadeIn('slow');
-	</script>
   </body>
 </html>

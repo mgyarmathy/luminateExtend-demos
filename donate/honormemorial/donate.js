@@ -13,7 +13,9 @@
     luminateExtend.api({
       api: 'donation', 
       data: 'method=getDonationFormInfo&form_id=' + $('input[name="form_id"]').val(), 
-      callback: addFormInfo
+      callback: addFormInfo,
+      useHTTPS: true,
+      requestType: 'GET'
     });
 
 

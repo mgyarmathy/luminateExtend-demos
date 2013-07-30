@@ -80,10 +80,7 @@
                 }
             });
         }
-        $('#payment-information').append( '<div id="total" style="margin-bottom: 10px;">'
-                              +   'Total: $0.00'
-                              + '</div>'
-                              );
+        
         $('.designated-amount').on('change', function(){
             var total = 0;
             $('.designated-amount').each(function(){
