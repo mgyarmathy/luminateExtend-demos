@@ -2,7 +2,7 @@
 
   $(function() {
     
-    var NUMBER_OF_DESIGNATION_OPTIONS = 3;
+    const NUMBER_OF_DESIGNATION_OPTIONS = 3;
     
     luminateExtend({
         apiKey: '123456789', 
@@ -23,22 +23,49 @@
         if(data.getDesigneesResponse && data.getDesigneesResponse.designee){
             var designeeOptions = luminateExtend.utils.ensureArray(data.getDesigneesResponse.designee),
                 optionsList = '<option value="">- Choose a Program -</option>';
-            if(designeeOptions.length < NUMBER_OF_DESIGNATION_OPTIONS){
-                $.error('function addDesignees(data): NUMBER_OF_DESIGNATION_OPTIONS is greater than number of designees');
+            if(designeeOptions.length < NUMBER_OF_DESIGNATION_OPTIONS+1){
+                $.error('function addDesignees(data): NUMBER_OF_DESIGNATION_OPTIONS cannot be greater than ' + (designeeOptions.length-1) );
             }
             console.log(designeeOptions);
             $.each(designeeOptions, function(){
                 optionsList += '<option value="' + this.id + '">' + this.name + '</option>';
             });
-            for(var i=0; i<NUMBER_OF_DESIGNATION_OPTIONS; i++){
-                $('#designees').append( '<select name="designated.' + i + '.id" class="input-xlarge" style="margin-right: 10px;">'
+            //first designation is required
+            $('#designees').append( '<label class="required">Choose a Program</label>'
+                                  + '<select name="designated.0.id" required>'
+                                  +    optionsList
+                                  + '</select>'
+                                  + '<table>'
+                                  + '<tr>'
+                                  + '<td><label class="required" style="width:112px;">Amount</label></td>'
+                                  + '<td>'
+                                  + '<div class="input-prepend input-append">'
+                                  +   '<span class="add-on">$</span>'
+                                  +   '<input class="designated-amount" style="text-align:right" name="designated.0.amount" type="text" value="0" required>'
+                                  +   '<span class="add-on">.00</span>'
+                                  + '</div>'
+                                  + '</td>'
+                                  + '</tr>'
+                                  + '</table>'
+                                  );
+            //the rest are not required
+            for(var i=1; i<NUMBER_OF_DESIGNATION_OPTIONS; i++){
+                $('#designees').append( '<label>Choose a Program</label>'
+                                      + '<select name="designated.' + i + '.id"">'
                                       +    optionsList
                                       + '</select>'
+                                      + '<table>'
+                                      + '<tr>'
+                                      + '<td><label style="width:112px;">Amount</label></td>'
+                                      + '<td>'
                                       + '<div class="input-prepend input-append">'
                                       +   '<span class="add-on">$</span>'
-                                      +   '<input class="input-small designated-amount" style="text-align:right" name="designated.' + i + '.amount" type="text" value="0">'
+                                      +   '<input class="designated-amount" style="text-align:right" name="designated.' + i + '.amount" type="text" value="0">'
                                       +   '<span class="add-on">.00</span>'
                                       + '</div>'
+                                      + '</td>'
+                                      + '</tr>'
+                                      + '</table>'
                                       );
             }
         }
@@ -54,21 +81,27 @@
         console.log(data);
         
         if (data.getDonationFormInfoResponse.supportsWriteInDesignation == 'true') {
-            $('#designees').append( '<label>'
-                                  +   '<input id="writeIn" type="checkbox">'
-                                  +   'I would like to enter details about a designation not listed'
-                                  + '</label>'
-                                  + '<fieldset id="writeInDesignation" style="display:none">'
-                                  +   '<label style="display:inline-block; width: 53%">Program Name</label>'
-                                  +   '<label style="display:inline-block;">Amount</label>'
-                                  +   '<input type="text" name="designated_write_in.10.name" style="width: 255px; margin-right: 10px;" placeholder="Name">'
-                                  +   '<div class="input-prepend input-append">'
-                                  +     '<span class="add-on">$</span>'
-                                  +     '<input class="input-small designated-amount" style="text-align:right" name="designated_write_in.10.amount" type="text" value="0">'
-                                  +     '<span class="add-on">.00</span>'
-                                  +   '</div>'
-                                  +   '<label>Contact Information</label>'
-                                  +   '<textarea rows=3 name="designated_write_in.10.contact"></textarea>'
+            $('#designees').append( '<input id="writeIn" type="checkbox">'
+                                  + '<div class="checkbox-label">'
+                                  +   'I would like to enter details about a designation not listed.'
+                                  + '</div>'
+                                  + '<fieldset id="writeInDesignation" class="hide">'
+                                  +   '<label class="required">Program Name</label>'
+                                  +   '<input type="text" name="designated_write_in.10.name">'
+                                  +   '<table>'
+                                  +   '<tr>'
+                                  +     '<td><label class="required" style="width:112px;">Amount</label></td>'
+                                  +     '<td>'
+                                  +       '<div class="input-prepend input-append">'
+                                  +         '<span class="add-on">$</span>'
+                                  +         '<input class="input-small designated-amount" style="text-align:right" name="designated_write_in.10.amount" type="text" value="0">'
+                                  +         '<span class="add-on">.00</span>'
+                                  +       '</div>'
+                                  +     '</td>'
+                                  +   '</tr>'
+                                  +   '</table>'
+                                  +   '<label class="required">Contact Information</label>'
+                                  +   '<input type="text" name="designated_write_in.10.contact">'
                                   + '</fieldset>'
                                   );
             $('#writeIn').on('change', function(){
@@ -86,17 +119,23 @@
             $('.designated-amount').each(function(){
                 total += parseInt($(this).val());
             });
-            $('#total').text('Total: $' + total + '.00');
+            $('#total').html('Total Donation:</br> $' + total + '.00');
+            if ($('input[name="autorepeat"]').is(':checked')) {
+                $('#total').append(' per month');
+            }
         });
         
         //handle autorepeat donation option
-		if (data.getDonationFormInfoResponse.supportsLevelAutorepeat == 'true') {
-			$('#donation-information').append( '<label>'
-											 +    '<input name="autorepeat" type="checkbox">'
-											 +    'Please repeat this gift automatically every month.'
-											 + '</label>'
-                                             );
-		}
+        if (data.getDonationFormInfoResponse.supportsLevelAutorepeat == 'true') {
+            $('#total').before( '<input name="autorepeat" type="checkbox">'
+                              + '<div class="checkbox-label">'
+                              +    'Please repeat the gift(s) automatically every month.'
+                              + '</div>'
+                              );
+            $('input[name="autorepeat"]').on('change', function(){
+                $('.designated-amount').trigger('change');
+            });
+        }
         
         // generate payment options - add to "Select Payment Method dropdown"
         var paymentCards = luminateExtend.utils.ensureArray(data.getDonationFormInfoResponse.paymentCards.paymentCard);
@@ -110,14 +149,21 @@
     }
     
     var requireCreditCardInfo = function() {
-        return ($('.donation-form [name="method"]').val() === 'donate');
+        return ($('#donate_form [name="method"]').val() === 'donate');
     }
+    
+    $.validator.messages.required = '&nbsp;<i class="icon-exclamation-sign"></i> Required';
     
     //apply validation to the donation form
 	$('#donate_form').validate(
         { debug: true
+        , onkeyup: false
+        , ignore: '.ignore-validate'
         , rules: { 'donor.email': { email: true
                                   }
+                 , 'other_amount': { min: 5 //to handle $5-minimum to prevent fraud
+                                   , number: true
+                                   }
                  , 'card_number': { required: { depends: requireCreditCardInfo 
                                               }
                                   , creditcard: { depends: requireCreditCardInfo 
@@ -127,19 +173,14 @@
                                            }
                                }
                  }
-        , messages: { 'donor.name.first' : 'Donor first name required.'
-                    , 'donor.name.last' : 'Donor last name required.'
-                    , 'donor.email' : 'Please enter a valid email address.'
-                    , 'billing.name.first' : 'Billing first name required.'
-                    , 'billing.name.last' : 'Billing last name required.'
-                    , 'billing.address.street1' : 'Street address required.'
-                    , 'billing.address.city' : 'City required.'
-                    , 'billing.address.zip' : 'ZIP/Postal code required.'
-                    , 'card_number': 'Valid credit card number required.'
-                    , 'card_cvv': 'Credit card CVV required.'
+        , messages: { 'donor.email' : { email: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
+                                      }
+                    , 'card_number': { creditcard: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
+                                     }
                     }
-        , errorLabelContainer: '#errorBox'
-        , wrapper: 'span'
+        , errorPlacement: function(error, element) {
+            element.before(error);
+          }
         , submitHandler: submitForm
 	    }
     );
@@ -245,19 +286,38 @@
             case "MasterCard":
             case "American Express":
             case "Discover": 
-                $(".donation-form [name='method']").val('donate');
+                $("#donate_form [name='method']").val('donate');
                 $("#credit-details").show();
                 break;
             case "Amazon":
-                $(".donation-form [name='method']").val('startDonation');
-                $(".donation-form [name='extproc']").val('amazon');
+                $("#donate_form [name='method']").val('startDonation');
+                $("#donate_form [name='extproc']").val('amazon');
                 $("#credit-details").hide();
                 break;
             case "PayPal":
-                $(".donation-form [name='method']").val('startDonation');
-                $(".donation-form [name='extproc']").val('paypal');
+                $("#donate_form [name='method']").val('startDonation');
+                $("#donate_form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
+        }
+    });
+    
+    $('#email-opt-in').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('input[name="donor.email_opt-in"]').val('true');
+        }
+        else {
+            $('input[name="donor.email_opt-in"]').val('false');
+        }
+    });
+    
+    $('#whats-this').click(function(e) {
+        e.preventDefault();
+        if ($('#whats-this-info').is(':visible')) {
+            $('#whats-this-info').hide();
+        }
+        else {
+            $('#whats-this-info').show();
         }
     });
     

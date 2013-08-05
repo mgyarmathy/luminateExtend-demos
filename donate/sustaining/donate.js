@@ -25,19 +25,19 @@
 
         $(donationLevels).each(function(i, level) {
             if (level.userSpecified === 'true') {
-                $('#donation-amounts').append( '<label style="display:inline; vertical-align:top; padding-right: 10px;">'
+                $('#donation-amounts').append( '<label class="other">'
                                              +    '<input name="level_id" id="other" value="' + level.level_id + '" type="radio">'
-                                             +    'Other'
-                                             + '</label>'
-                                             + '<div class="input-prepend input-append" style="margin-top: -5px ">'
+                                             +    'Other Amount:'
+                                             + '<div class="input-prepend input-append">'
                                              +    '<span class="add-on">$</span>'
-                                             +    '<input class="input-small updateTotal" style="text-align:right" name="other_amount" type="text" placeholder="" disabled>'
+                                             +    '<input class="input-small" style="text-align:right" name="other_amount" type="text" disabled>'
                                              +    '<span class="add-on">.00</span>'
                                              + '</div>'
+                                             + '</label>'
                                              );
             }
             else {
-                $('#donation-amounts').append( '<label style="display:inline; vertical-align:top; padding-right: 18px;">'
+                $('#donation-amounts').append( '<label>'
                                              +   '<input class="updateTotal" name="level_id" value="' + level.level_id + '" type="radio" data-amount="'+ parseInt(level.amount.decimal) +'">'
                                              +   level.amount.formatted
                                              + '</label>'
@@ -57,46 +57,48 @@
         
         //handle autorepeat donation option
 		if (data.getDonationFormInfoResponse.supportsSustaining == 'true') {
-			$('#donation-information').append( '<label>Gift Type</label>'
-                                             + '<label style="display:inline; vertical-align:top; padding-right: 18px;">'
-                                             +   '<input class="updateTotal" type="radio" name="giftType" value="sustaining" checked>'
-                                             +   'Sustaining Gift'
-                                             + '</label>'
-                                             + '<label style="display:inline; vertical-align:top; padding-right: 18px;">'
-                                             +   '<input class="updateTotal" type="radio" name="giftType" value="oneTime">'
-                                             +   'One-time Gift'
-                                             + '</label>'
-                                             )
-                                      /* default range slider */
-                                      .append( '<fieldset id="sustaining-info">'
-                                             +   '<label>Gift Duration</label>'
-                                             +   '<label id="duration-label" style="display:inline-block; width:115px; margin-right:5px; text-align:center;">Forever (monthly)</label>'
-                                             +   '<input id="duration" class="updateTotal" type="range" min="2" max="13" value="13">'
-                                             + '</fieldset>'
-                                             )
-                                      /* alternative select box      
-                                      .append( '<fieldset id="sustaining-info">'
-                                             +   '<label>Gift Duration</label>'
-                                             +   '<select id="duration" class="updateTotal">'
-                                             +     '<option value="2">2 months</option>'
-                                             +     '<option value="3">3 months</option>'
-                                             +     '<option value="4">4 months</option>'
-                                             +     '<option value="5">5 months</option>'
-                                             +     '<option value="6">6 months</option>'
-                                             +     '<option value="7">7 months</option>'
-                                             +     '<option value="8">8 months</option>'
-                                             +     '<option value="9">9 months</option>'
-                                             +     '<option value="10">10 months</option>'
-                                             +     '<option value="11">11 months</option>'
-                                             +     '<option value="12">12 months</option>'
-                                             +     '<option value="13" selected>Forever (monthly)</option>'
-                                             +   '</select>'
-                                             + '</fieldset>'
-                                             )      
-                                      */
-                                      .append( '<input type="hidden" name="sustaining.frequency" value="monthly">'
-                                             + '<input type="hidden" name="sustaining.duration" value="0">'
-                                             );
+			$('#total').before( '<label class="required">Gift Type</label>'
+                              + '<label class="radio">'
+                              +   '<input class="updateTotal" type="radio" name="giftType" value="sustaining" checked>'
+                              +   'Sustaining Gift'
+                              + '</label>'
+                              + '<label class="radio">'
+                              +   '<input class="updateTotal" type="radio" name="giftType" value="oneTime">'
+                              +   'One-time Gift'
+                              + '</label>'
+                              )
+                       /* default range slider */
+                       .before( '<fieldset id="sustaining-info">'
+                              +   '<label>Gift Duration</label>'
+                              +   '<div class="range-slider">'
+                              +   '<div id="duration-label">2 Months</div>'
+                              +   '<input id="duration" class="updateTotal" type="range" min="2" max="13" value="2">'
+                              +   '</div>'
+                              + '</fieldset>'
+                              )
+                       /* alternative select box      
+                       .before( '<fieldset id="sustaining-info">'
+                              +   '<label>Gift Duration</label>'
+                              +   '<select id="duration" class="updateTotal">'
+                              +     '<option value="2">2 months</option>'
+                              +     '<option value="3">3 months</option>'
+                              +     '<option value="4">4 months</option>'
+                              +     '<option value="5">5 months</option>'
+                              +     '<option value="6">6 months</option>'
+                              +     '<option value="7">7 months</option>'
+                              +     '<option value="8">8 months</option>'
+                              +     '<option value="9">9 months</option>'
+                              +     '<option value="10">10 months</option>'
+                              +     '<option value="11">11 months</option>'
+                              +     '<option value="12">12 months</option>'
+                              +     '<option value="13" selected>Forever (monthly)</option>'
+                              +   '</select>'
+                              + '</fieldset>'
+                              )      
+                       */
+                       .before( '<input type="hidden" name="sustaining.frequency" value="monthly">'
+                              + '<input type="hidden" name="sustaining.duration" value="0">'
+                              );
                                              
             $('input[name="giftType"]').on('change', function(){
                 if($(this).val() === "sustaining"){
@@ -147,32 +149,33 @@
                 var months = parseInt($('input[name="sustaining.duration"]').val());
                 if(months == 0){
                     total = level_amount * 12;
-                    $('#total').text('Total: $' + total + '.00 per year');
+                    $('#total').html('Total Donation:</br> $' + total + '.00 per year');
                 }
                 else{
                     total = level_amount * months;
-                    $('#total').text('Total: $' + total + '.00 over ' + months + ' months');
+                    $('#total').html('Total Donation:</br> $' + total + '.00 over ' + months + ' months');
                 }
             }
             else if($('input[name="giftType"]:checked').val() === "oneTime"){
                 total = level_amount;
-                $('#total').text('Total: $' + total + '.00');
+                $('#total').html('Total Donation:</br> $' + total + '.00');
             }
         });
     }
     
     var requireCreditCardInfo = function() {
-        return ($('.donation-form [name="method"]').val() === 'donate');
+        return ($('#donate_form [name="method"]').val() === 'donate');
     }
+    
+    $.validator.messages.required = '&nbsp;<i class="icon-exclamation-sign"></i> Required';
     
     //apply validation to the donation form
 	$('#donate_form').validate(
         { debug: true
+        , onkeyup: false
+        , ignore: '.ignore-validate'
         , rules: { 'donor.email': { email: true
                                   }
-                 , 'other_amount': { min: 5 //to handle $5-minimum to prevent fraud
-                                   , number: true
-                                   }
                  , 'card_number': { required: { depends: requireCreditCardInfo 
                                               }
                                   , creditcard: { depends: requireCreditCardInfo 
@@ -182,20 +185,14 @@
                                            }
                                }
                  }
-        , messages: { 'donor.name.first' : 'Donor first name required.'
-                    , 'donor.name.last' : 'Donor last name required.'
-                    , 'donor.email' : 'Please enter a valid email address.'
-                    , 'other_amount' : 'Please enter an amount of at least $5.00.'
-                    , 'billing.name.first' : 'Billing first name required.'
-                    , 'billing.name.last' : 'Billing last name required.'
-                    , 'billing.address.street1' : 'Street address required.'
-                    , 'billing.address.city' : 'City required.'
-                    , 'billing.address.zip' : 'ZIP/Postal code required.'
-                    , 'card_number': 'Valid credit card number required.'
-                    , 'card_cvv': 'Credit card CVV required.'
+        , messages: { 'donor.email' : { email: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
+                                      }
+                    , 'card_number': { creditcard: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
+                                     }
                     }
-        , errorLabelContainer: '#errorBox'
-        , wrapper: 'span'
+        , errorPlacement: function(error, element) {
+            element.before(error);
+          }
         , submitHandler: submitForm
 	    }
     );
@@ -314,6 +311,25 @@
                 $(".donation-form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
+        }
+    });
+    
+    $('#email-opt-in').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('input[name="donor.email_opt-in"]').val('true');
+        }
+        else {
+            $('input[name="donor.email_opt-in"]').val('false');
+        }
+    });
+    
+    $('#whats-this').click(function(e) {
+        e.preventDefault();
+        if ($('#whats-this-info').is(':visible')) {
+            $('#whats-this-info').hide();
+        }
+        else {
+            $('#whats-this-info').show();
         }
     });
     

@@ -20,21 +20,21 @@
 
 
     function addFormInfo(data){
-        //console.log(data);
+
         //generate donation levels on the form
         var donationLevels = luminateExtend.utils.ensureArray(data.getDonationFormInfoResponse.donationLevels.donationLevel);
-        // console.log(donationLevels);
+
         $(donationLevels).each(function(i, level) {
             if (level.userSpecified === 'true') {
-                $('#donation-amounts').append( '<label>'
+                $('#donation-amounts').append( '<label class="other">'
                                              +    '<input name="level_id" id="other" value="' + level.level_id + '" type="radio">'
-                                             +    'Other Amount'
-                                             + '</label>'
+                                             +    'Other Amount:'
                                              + '<div class="input-prepend input-append">'
                                              +    '<span class="add-on">$</span>'
-                                             +    '<input class="input-small" style="text-align:right" name="other_amount" type="text" placeholder="" disabled>'
+                                             +    '<input class="input-small" style="text-align:right" name="other_amount" type="text" disabled>'
                                              +    '<span class="add-on">.00</span>'
                                              + '</div>'
+                                             + '</label>'
                                              );
             }
             else {
@@ -49,23 +49,21 @@
         $('input[name="level_id"]').on('click', function() {
             if ($(this).is('#other')) {
                 $('input[name="other_amount"]').removeAttr('disabled');
-                //$('input[name="other_amount"]').attr('name', 'other_amount');
                 $('input[name="other_amount"]').focus();
             }
             else {
                 $('input[name="other_amount"]').attr('disabled', 'disabled');
-                //$('input[name="other_amount"]').removeAttr('name');
             }
         });
         
         //handle autorepeat donation option
-		if (data.getDonationFormInfoResponse.supportsLevelAutorepeat == 'true') {
-			$('#donation-amounts').append( '<label>'
-                                         +    '<input name="autorepeat" type="checkbox">'
+        if (data.getDonationFormInfoResponse.supportsLevelAutorepeat == 'true') {
+            $('#donation-amounts').append( '<input name="autorepeat" type="checkbox">'
+                                         + '<div class="checkbox-label">'
                                          +    'Please repeat this gift automatically every month.'
-                                         + '</label>'
+                                         + '</div>'
                                          );
-		}
+        }
 
         // generate payment options - add to "Select Payment Method dropdown"
         var paymentCards = luminateExtend.utils.ensureArray(data.getDonationFormInfoResponse.paymentCards.paymentCard);
@@ -78,14 +76,25 @@
         });
     }
     
+    var requireHonoreeName = function() {
+        return $('#makeTribute').is(':checked');
+    }
+    
     var requireCreditCardInfo = function() {
         return ($('.donation-form [name="method"]').val() === 'donate');
     }
     
+    $.validator.messages.required = '&nbsp;<i class="icon-exclamation-sign"></i> Required';
+    
     //apply validation to the donation form
 	$('#donate_form').validate(
         { debug: true
-        , rules: { 'donor.email': { email: true
+        , onkeyup: false
+        , ignore: '.ignore-validate'
+        , rules: { 'tribute.honoree.name.full': { required: { depends: requireHonoreeName
+                                                            }
+                                                }
+                 , 'donor.email': { email: true
                                   }
                  , 'other_amount': { min: 5 //to handle $5-minimum to prevent fraud
                                    , number: true
@@ -101,21 +110,14 @@
                                            }
                                }
                  }
-        , messages: { 'tribute.honoree.name.full' : 'Honoree name required'
-                    , 'ecard.send_date' : 'Please use the following date format: YYYY-MM-DD'
-                    , 'donor.email' : 'Please enter a valid email address.'
-                    , 'other_amount' : 'Please enter an amount of at least $5.00.'
-                    , 'billing.name.first' : 'Billing first name required.'
-                    , 'billing.name.last' : 'Billing last name required.'
-                    , 'billing.address.street1' : 'Street address required.'
-                    , 'billing.address.city' : 'City required.'
-                    , 'billing.address.zip' : 'ZIP/Postal code required.'
-                    , 'card_number': 'Valid credit card number required.'
-                    , 'card_cvv': 'Credit card CVV required.'
+        , messages: { 'donor.email' : { email: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
+                                      }
+                    , 'card_number': { creditcard: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
+                                     }
                     }
-        , ignore: '.ignore'
-        , errorLabelContainer: '#errorBox'
-        , wrapper: 'span'
+        , errorPlacement: function(error, element) {
+            element.before(error);
+          }
         , submitHandler: submitForm
 	    }
     );
@@ -163,20 +165,20 @@
                                      +       '<td><p>' + today + '</p></td>'
                                      +     '</tr>'
                                      +     '<tr>'
-                                     +       '<td>Honoree Name:</td>'
-                                     +       '<td>' + $('#honoree-name').val() + '</td>'
-                                     +     '</tr>'
-                                     +     '<tr>'
                                      +       '<td>Donation Amount:</td>'
                                      +       '<td>' + data.donationResponse.donation.amount.formatted + '</td>'
                                      +     '</tr>'
                                      +     '<tr>'
-                                     +       '<td>Billing Name:</td>'
+                                     +       '<td>Name:</td>'
                                      +       '<td>' + $('#billing_name_first').val() + ' ' + $('#billing_name_last').val() + '</td>'
                                      +     '</tr>'
                                      +     '<tr>'
                                      +       '<td>Street 1:</td>'
                                      +       '<td>' + $('#billing_address_street1').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Street 2:</td>'
+                                     +       '<td>' + $('#billing_address_street2').val() + '</td>'
                                      +     '</tr>'
                                      +     '<tr>'
                                      +     '<tr>'
@@ -186,6 +188,10 @@
                                      +     '<tr>'
                                      +       '<td>State/Province:</td>'
                                      +       '<td>' + $('#billing_address_state').val() + '</td>'
+                                     +     '</tr>'
+                                     +     '<tr>'
+                                     +       '<td>Country:</td>'
+                                     +       '<td>' + $('#billing_address_country').val() + '</td>'
                                      +     '</tr>'
                                      +     '<tr>'
                                      +       '<td>ZIP/Postal Code:</td>'
@@ -225,17 +231,17 @@
             case "MasterCard":
             case "American Express":
             case "Discover": 
-                $(".donation-form [name='method']").val('donate');
+                $("#donate_form [name='method']").val('donate');
                 $("#credit-details").show();
                 break;
             case "Amazon":
-                $(".donation-form [name='method']").val('startDonation');
-                $(".donation-form [name='extproc']").val('amazon');
+                $("#donate_form [name='method']").val('startDonation');
+                $("#donate_form [name='extproc']").val('amazon');
                 $("#credit-details").hide();
                 break;
             case "PayPal":
-                $(".donation-form [name='method']").val('startDonation');
-                $(".donation-form [name='extproc']").val('paypal');
+                $("#donate_form [name='method']").val('startDonation');
+                $("#donate_form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
         }
@@ -273,6 +279,25 @@
         else{
             $('input[name="ecard.send"]').val('false');
             $('#ecard-info').hide();
+        }
+    });
+    
+    $('#email-opt-in').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('input[name="donor.email_opt-in"]').val('true');
+        }
+        else {
+            $('input[name="donor.email_opt-in"]').val('false');
+        }
+    });
+    
+    $('#whats-this').click(function(e) {
+        e.preventDefault();
+        if ($('#whats-this-info').is(':visible')) {
+            $('#whats-this-info').hide();
+        }
+        else {
+            $('#whats-this-info').show();
         }
     });
     

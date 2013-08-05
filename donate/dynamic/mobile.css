@@ -1,0 +1,104 @@
+/*from donate.css */
+
+label {
+  cursor: default;
+  font-weight: bold;
+}
+
+input.error {
+  background-color: #fff;
+}
+
+label.error {
+  color: red;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+#donate_submit {
+  display: block;
+}
+
+#confirmation {
+  background-color: #eee;
+  margin-top: 20px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
+  box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
+}
+
+/*------------------*/
+
+
+#donate {
+  padding: 50px 10px;
+  margin: 0 auto;
+  width: 300px;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 120%;
+  color: black;
+  background-color: #EBEBEB;
+}
+
+#donate h4{
+  color: rgb(5,157,73);
+  font-size: 22px;
+}
+
+#donate_form {
+  width: 280px;
+  background-color: #FFF;
+  padding: 10px;
+  margin: 10px auto 0;
+  -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
+  box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
+}
+
+.required:after {
+  content: "*";
+  color: red;
+}
+
+#donate_form input[type="text"],
+#donate_form input[type="email"]{
+  width: 260px;
+}
+
+#donate_form select{
+  width: 275px;
+}
+
+#donate_form input[name="other_amount"] {
+  width: 80px;
+}
+
+#donate_form input[name="other_amount"]:disabled {
+  background-color: #FDFDFD
+}
+
+#donation-amounts label {
+  padding: 5px 0;
+  font-weight: normal;
+}
+
+.checkbox-label {
+  display: inline-block;
+  width: 255px;
+  padding-bottom: 12px;
+}
+
+#other {
+  margin-top: 14px;
+}
+
+.input-prepend.input-append {
+  padding-top: 5px;
+  padding-left: 8px;
+}

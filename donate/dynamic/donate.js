@@ -32,13 +32,13 @@ $(function() {
             if(level.userSpecified === 'true'){
                 $('#donation-amounts').append( '<label>'
                                              +    '<input name="amountOption" id="other" value="' + level.level_id + '" type="radio">'
-                                             +    'Other Amount'
-                                             + '</label>'
+                                             +    'Other Amount:'
                                              + '<div class="input-prepend input-append">'
                                              +    '<span class="add-on">$</span>'
-                                             +    '<input class="input-small" style="text-align:right" name="other_amount" type="text" placeholder="0" disabled>'
+                                             +    '<input class="input-small" style="text-align:right" name="other_amount" type="text" disabled>'
                                              +    '<span class="add-on">.00</span>'
                                              + '</div>'
+                                             + '</label>'
                                              );
             }
             else{
@@ -62,10 +62,11 @@ $(function() {
         
         //handle autorepeat donation option
         if(data.getDonationFormInfoResponse.supportsLevelAutorepeat == 'true'){
-            $('#donation-information').append( '<label>'
-                                             +    '<input name="autorepeat" type="checkbox">'
-                                             +    'Please repeat this gift automatically every month.'
-                                             + '</label>');
+            $('#donation-amounts').append( '<input name="autorepeat" type="checkbox">'
+                                         + '<div class="checkbox-label">'
+                                         +    'Please repeat this gift automatically every month.'
+                                         + '</div>'
+                                         );
         }
         
     }
@@ -148,4 +149,12 @@ $(function() {
         }
     });
 
+    $('#email-opt-in').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('input[name="donor.email_opt-in"]').val('true');
+        }
+        else {
+            $('input[name="donor.email_opt-in"]').val('false');
+        }
+    });
 });
