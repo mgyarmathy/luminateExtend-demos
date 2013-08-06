@@ -76,12 +76,12 @@
         });
     }
 
-
     function addFormInfo(data){
         console.log(data);
         
         if (data.getDonationFormInfoResponse.supportsWriteInDesignation == 'true') {
-            $('#designees').append( '<input id="writeIn" type="checkbox">'
+            $('#designees').append( '<hr class="hide-mobile">'
+                                  + '<input id="writeIn" type="checkbox" class="ignore-validate">'
                                   + '<div class="checkbox-label">'
                                   +   'I would like to enter details about a designation not listed.'
                                   + '</div>'
@@ -127,7 +127,7 @@
         
         //handle autorepeat donation option
         if (data.getDonationFormInfoResponse.supportsLevelAutorepeat == 'true') {
-            $('#total').before( '<input name="autorepeat" type="checkbox">'
+            $('#total').before( '<input id="autorepeat" name="autorepeat" type="checkbox">'
                               + '<div class="checkbox-label">'
                               +    'Please repeat the gift(s) automatically every month.'
                               + '</div>'
@@ -179,7 +179,12 @@
                                      }
                     }
         , errorPlacement: function(error, element) {
-            element.before(error);
+            if ($('#layout').attr('href') == 'mobile.css') {
+                element.before(error);
+            }
+            else if ($('#layout').attr('href') == 'fullpage.css') {
+                element.after(error);
+            }
           }
         , submitHandler: submitForm
 	    }

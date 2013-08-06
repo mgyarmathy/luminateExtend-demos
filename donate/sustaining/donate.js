@@ -16,7 +16,6 @@
       callback: addFormInfo
     });
 
-
     function addFormInfo(data){
         //console.log(data);
         
@@ -44,6 +43,11 @@
                                              );
             }
         });
+        
+        $('#donation-amounts').after('<hr class="hide-mobile">');
+        
+        //check the first donation amount
+        $($('#donation-amounts input[type="radio"]')[0]).prop('checked', true);
         
         $('input[name="level_id"]').on('click', function() {
             if ($(this).is('#other')) {
@@ -191,7 +195,12 @@
                                      }
                     }
         , errorPlacement: function(error, element) {
-            element.before(error);
+            if ($('#layout').attr('href') == 'mobile.css') {
+                element.before(error);
+            }
+            else if ($('#layout').attr('href') == 'fullpage.css') {
+                element.after(error);
+            }
           }
         , submitHandler: submitForm
 	    }

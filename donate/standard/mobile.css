@@ -36,12 +36,15 @@ input[type="radio"] {
 #donate {
   padding: 40px 10px;
   margin: 0 auto;
-  width: 300px;
+  width: 320px;
   font-family: sans-serif;
   font-size: 14px;
   line-height: 130%;
   color: black;
   background-color: #EBEBEB;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #donate a{
@@ -51,6 +54,10 @@ input[type="radio"] {
 #donate h4{
   color: #009933;
   font-size: 22px;
+}
+
+#donate .headline {
+  padding: 0;
 }
 
 #donate_form {
@@ -70,6 +77,10 @@ input[type="radio"] {
 .required:after {
   content: "*";
   color: red;
+}
+
+#donate_form .hide-mobile {
+  display: none;
 }
 
 #donate_form input[type="text"],
@@ -100,6 +111,12 @@ input[type="radio"] {
   font-weight: normal;
   font-style: italic;
   line-height: 100%;
+}
+
+#donate_form label.subheading {
+  font-weight: normal;
+  font-style: italic;
+  white-space: pre;
 }
 
 #donation-amounts label {
@@ -141,6 +158,10 @@ input[type="radio"] {
   padding-left: 8px;
 }
 
+#ecard-info button {
+  font-weight: bold;
+}
+
 .ecard-option {
   padding-right: 16px;
   padding-bottom: 10px;
@@ -165,6 +186,7 @@ input[type="radio"] {
 
 #donate_form input.half {
   width: 117px;
+  display: block;
 }
 
 #donate_form select.half {
@@ -191,6 +213,17 @@ input[type="radio"] {
 
 #whats-this:hover {
   text-decoration: underline;
+}
+
+.submit-warning {
+  width:60%;
+  color:red;
+  padding-right:10px
+}
+
+.verisign {
+  background-image: url('img/verisign.png');
+  background-size: 100% 100%;
 }
 
 #donate-submit {

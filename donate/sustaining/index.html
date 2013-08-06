@@ -7,13 +7,13 @@
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link rel="stylesheet" href="mobile.css">
+    <link id="layout" rel="stylesheet" href="fullpage.css">
     <style type="text/css">
         #main {
           margin-top: 15px;
           margin-bottom: 20px;
           padding: 20px 0px 20px; 
-          background-color: #ddd;
+          background-color: #FFF;
         }
     </style>
     
@@ -58,8 +58,8 @@
                     <a href="../sustaining">Sustaining</a>
                     <div id="layouts" style="padding: 20px;">
                         Layouts: 
-                        <button id="mobile" class="btn btn-primary active">Mobile</button>
-                        <button id="layout2" class="btn btn-primary">Layout2</button>
+                        <button id="mobile" class="btn btn-primary">Mobile</button>
+                        <button id="fullpage" class="btn btn-primary active">Full Page</button>
                         <button id="layout3" class="btn btn-primary">Layout3</button>
                     </div>
                 </nav>
@@ -69,11 +69,13 @@
         <div class="row">
 			<div class="span12">
 			<div id="donate">
+                <div class="headline">
                 <h4>Donate to Lorem Ipsum</h4>
                 <p>Lorem ipsum dolor sit amet, mollis aliquam consectetur elit. In <a href="#">sed sapien</a> eu ante tincidunt
                 malesuatda at vel erat. In mollis aliquam ante, et faucibus augue interdum quis.</p>
                 <p style="float:right;"><span style="color:red">*</span> = required fields</p>
                 <br style="clear: both;">
+                </div>
                 <form id="donate_form">
                     <input name="method" type="hidden" value="donate" />
                     <input name="v" type="hidden" value="1.0" />
@@ -89,8 +91,8 @@
 
                     <fieldset id="donation-information">
                         <h4>Donation Information</h4>
+                        <label class="required">Gift Amount</label>
                         <fieldset id="donation-amounts">
-                            <label class="required">Gift Amount</label>
                             <!-- donation levels generated here -->
                         </fieldset>
                         <div id="total">Total Donation:</br>$0.00</div>
@@ -420,84 +422,86 @@
                     </fieldset>
                     <hr>
                     <h4>Payment Information</h4>
-                    <label>Payment Type</label> 
-                    <div id="payment-type-images">
-                        <img src="img/visa.png" />
-                        <img src="img/mastercard.png" />
-                        <img src="img/amex.png" />
-                        <img src="img/discover.png" />
-                        <img src="img/paypal.png" />
-                    </div>
-                    <select id="payment_type" name="payment_type" class="" required>
-                      <option>Select Payment Method</option>
-                     </select>
-                    <fieldset id="credit-details" style="display:none">
-                      <label class="required">Card Number</label>
-                        <input name="card_number" type="text">
-                        <label class="required">Expiration Date</label>
-                        <div>
-                        <select name="card_exp_date_month" class="half">
-                          <option value="1">01</option>
-                          <option value="2">02</option>
-                          <option value="3">03</option>
-                          <option value="4">04</option>
-                          <option value="5">05</option>
-                          <option value="6">06</option>
-                          <option value="7">07</option>
-                          <option value="8">08</option>
-                          <option value="9">09</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                        </select>
-                        <select name="card_exp_date_year" class="half">
-                          <option value="2013">2013</option>
-                          <option value="2014">2014</option>
-                          <option value="2015">2015</option>
-                          <option value="2016">2016</option>
-                          <option value="2017">2017</option>
-                          <option value="2018">2018</option>
-                          <option value="2019">2019</option>
-                          <option value="2020">2020</option>
-                        </select>
+                    <fieldset id="payment-information">
+                        <label>Payment Type</label> 
+                        <div id="payment-type-images">
+                            <img src="img/visa.png" />
+                            <img src="img/mastercard.png" />
+                            <img src="img/amex.png" />
+                            <img src="img/discover.png" />
+                            <img src="img/paypal.png" />
                         </div>
-                        <table>
+                        <select id="payment_type" name="payment_type" class="" required>
+                          <option>Select Payment Method</option>
+                         </select>
+                        <fieldset id="credit-details" class="hide">
+                          <label class="required">Card Number</label>
+                            <input name="card_number" type="text">
+                            <label class="required">Expiration Date</label>
+                            <div class="expiration">
+                            <select name="card_exp_date_month" class="half">
+                              <option value="1">01</option>
+                              <option value="2">02</option>
+                              <option value="3">03</option>
+                              <option value="4">04</option>
+                              <option value="5">05</option>
+                              <option value="6">06</option>
+                              <option value="7">07</option>
+                              <option value="8">08</option>
+                              <option value="9">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                            <select name="card_exp_date_year" class="half">
+                              <option value="2013">2013</option>
+                              <option value="2014">2014</option>
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                              <option value="2017">2017</option>
+                              <option value="2018">2018</option>
+                              <option value="2019">2019</option>
+                              <option value="2020">2020</option>
+                            </select>
+                            </div>
+                            <table class="cvv">
+                            <tr>
+                            <td>
+                            <label class="required">CVV</label>
+                            <input name="card_cvv" type="text" class="half ignore-validate">
+                            </td>
+                            <td>
+                                <button id="whats-this">What is this?</button>
+                            </td>
+                            </tr>
+                            </table>
+                            <div id="whats-this-info" class="hide">
+                                <label>Visa, MasterCard, and Discover:</label>
+                                <p>The verification code for Visa, MasterCard, and
+                                Discover is a 3-digit number printed on the back of
+                                your card. It appears after the account number or the
+                                last 4 digits of your account number, in the signature
+                                panel.</p>
+                                <label>American Express:</label>
+                                <p>The American Express verification code is a 4-digit
+                                number printed on the front of your card. It appears 
+                                above and to the right of the embossed account number</p>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <table style="margin-bottom: 20px; width:98%;">
                         <tr>
-                        <td>
-                        <label class="required">CVV</label>
-                        <input name="card_cvv" type="text" class="half" style="display:block;">
+                        <td class="submit-warning">
+                            You will be charged upon clicking Submit Donation button.
                         </td>
-                        <td>
-                            <button id="whats-this">What is this?</button>
-                        </td>
+                        <td class="verisign"></td>
                         </tr>
                         </table>
-                        <div id="whats-this-info" class="hide">
-                            <label>Visa, MasterCard, and Discover:</label>
-                            <p>The verification code for Visa, MasterCard, and
-                            Discover is a 3-digit number printed on the back of
-                            your card. It appears after the account number or the
-                            last 4 digits of your account number, in the signature
-                            panel.</p>
-                            <label>American Express:</label>
-                            <p>The American Express verification code is a 4-digit
-                            number printed on the front of your card. It appears 
-                            above and to the right of the embossed account number</p>
-                        </div>
+                        <button type="submit" id="donate-submit">
+                            Submit Donation 
+                            <span style="font-size:26px; font-weight:normal;">&#187;</span>
+                        </button>
                     </fieldset>
-                    <hr>
-                    <table style="margin-bottom: 20px;">
-                    <tr>
-                    <td style="width:60%; color:red; padding-right:10px">
-                        You will be charged upon clicking Submit Donation button.
-                    </td>
-                    <td style="background-image: url('img/verisign.png'); background-size: 100% 100%;"></td>
-                    </tr>
-                    </table>
-                    <button type="submit" id="donate-submit">
-                        Submit Donation 
-                        <span style="font-size:26px; font-weight:normal;">&#187;</span>
-                    </button>
                 </form>
             </div> <!-- end #donate -->
             <div id="confirmation" class="hide"></div>
@@ -509,9 +513,12 @@
     <script>
     $(document).ready(function(){
         $('#layouts button').click(function(){
+            $("#donate_form label.error").remove();
+            $("#donate_form input.error").removeClass('error');
             $('#layouts button').removeClass('active');
-            $('head').append('<link rel="stylesheet" href="' + $(this).attr('id') + '.css">');
+            $('#layout').prop('href', $(this).attr('id') + '.css');
             $(this).addClass('active');
+            $("#donate_form").validate();
         });
     });
     </script>

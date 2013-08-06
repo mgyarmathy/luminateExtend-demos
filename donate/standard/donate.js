@@ -13,15 +13,16 @@
     luminateExtend.api({
       api: 'donation', 
       data: 'method=getDonationFormInfo&form_id=' + $('input[name="form_id"]').val(), 
-      callback: addFormInfo
+      callback: addFormInfo,
+      useHTTPS: true,
+      requestType: 'GET'
     });
 
 
     function addFormInfo(data){
-        // console.log(data);
         //generate donation levels on the form
         var donationLevels = luminateExtend.utils.ensureArray(data.getDonationFormInfoResponse.donationLevels.donationLevel);
-        // console.log(donationLevels);
+
         $(donationLevels).each(function(i, level) {
             if (level.userSpecified === 'true') {
                 $('#donation-amounts').append( '<label class="other">'
@@ -43,6 +44,9 @@
                                              );
             }
         });
+        
+        //check the first donation amount
+        $($('#donation-amounts input[type="radio"]')[0]).prop('checked', true);
         
         $('input[name="level_id"]').on('click', function() {
             if ($(this).is('#other')) {
@@ -105,7 +109,12 @@
                                      }
                     }
         , errorPlacement: function(error, element) {
-            element.before(error);
+            if ($('#layout').attr('href') == 'mobile.css') {
+                element.before(error);
+            }
+            else if ($('#layout').attr('href') == 'fullpage.css') {
+                element.after(error);
+            }
           }
         , submitHandler: submitForm
 	    }

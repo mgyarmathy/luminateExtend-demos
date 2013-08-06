@@ -9,9 +9,22 @@ input.error {
   background-color: #fff;
 }
 
+#billing-information input[type="text"].error,
+#billing-information input[type="email"].error,
+#credit-details input[type="text"].error {
+  margin-right: 1%;
+}
+
+
 label.error {
   display: inline-block;
   color: red;
+}
+
+#billing-information label.error 
+#payment-information lable.error {
+  width: 9%;
+  vertical-align: middle;
 }
 
 input[type="checkbox"],
@@ -34,9 +47,8 @@ input[type="radio"] {
 
 
 #donate {
-  padding: 40px 10px;
-  margin: 0 auto;
-  width: 320px;
+  width: 100%;
+  padding: 20px 0;
   font-family: sans-serif;
   font-size: 14px;
   line-height: 130%;
@@ -47,23 +59,23 @@ input[type="radio"] {
   box-sizing: border-box;
 }
 
-#donate a{
+#donate a {
   text-decoration: underline;
 }
 
-#donate h4{
+#donate h4 {
   color: #009933;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 #donate .headline {
-  padding: 0;
+  padding: 0 8%;
 }
 
 #donate_form {
-  width: 280px;
+  width: 85%;
   background-color: #FFF;
-  padding: 10px 10px 25px;
+  padding: 20px 40px 25px;
   margin: 10px auto 0;
   -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
   -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
@@ -77,20 +89,6 @@ input[type="radio"] {
 .required:after {
   content: "*";
   color: red;
-}
-
-#donate_form .hide-mobile {
-  display: none;
-}
-
-#donate_form input[type="text"],
-#donate_form input[type="email"], 
-#donate_form textarea {
-  width: 260px;
-}
-
-#donate_form select{
-  width: 275px;
 }
 
 #donate_form input[name="other_amount"],
@@ -111,34 +109,121 @@ input[type="radio"] {
   font-weight: normal;
   font-style: italic;
   line-height: 100%;
+  margin: -5px 0 10px 30.4%;
+  width: inherit;
+  display: block;
 }
 
 #donate_form label.subheading {
   font-weight: normal;
   font-style: italic;
-  white-space: pre;
+  width: inherit;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#donation-information label {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+
+#donation-information label.radio {
+  width: 14%;
+}
+
+#donation-amounts {
+  display: inline-block;
+  width: 52%;
 }
 
 #donation-amounts label {
   padding: 5px 0;
   font-weight: normal;
+  display: inline-block;
 }
 
 #donation-amounts label.other {
-  padding-top: 0;
+  display: block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+#billing-information label{
+  width: 30%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#billing-information input[type="text"],
+#billing-information input[type="email"] {
+  width: 30%;
+  margin-right: 38%;
+}
+
+#billing-information select {
+  width: 31.5%;
+  margin-right: 37%;
+}
+
+#email-opt-in,
+#writeIn,
+#autorepeat {
+  margin-left: 30%;
+}
+
+#payment-information label{
+  width: 30%;
+  display: inline-block;
+}
+
+#payment-information input[type="text"] {
+  width: 30%;
+  margin-right: 38%;
+}
+
+#payment_type {
+  margin-top: 10px;
+  margin-left: 30.4%;
+  width: 31.5%;
+}
+
+.expiration {
+  display: inline-block;
+  width: 32%;
+  magin-right: 37%;
+}
+
+#payment-information .cvv {
+  width: 100%;
+}
+
+#payment-information .cvv label {
+  width: 44.5%;
 }
 
 .checkbox-label {
   display: inline-block;
-  width: 255px;
+  width: 60%;
   margin-bottom: 10px;
 }
 
 .range-slider {
   text-align: center;
+  display: inline-block;
+}
+
+#duration {
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 10px;
+  clear: both;
 }
 
 #duration-label {
+  display: inline-block;
+  float: right;
   margin: 15px auto;
   border: #EBEBEB 1px solid;
   width: 130px;
@@ -155,10 +240,57 @@ input[type="radio"] {
 
 .input-prepend.input-append {
   padding-top: 5px;
-  padding-left: 8px;
+  padding-left: 20px;
+}
+
+#designees table {
+  width: 70.5%;
+  margin-bottom: 14px;
+}
+
+#designees select {
+  display: inline-block;
+  width: 31.5%;
+  margin-right: 37%;
+  margin-bottom: 8px;
+}
+
+#designees select.error {
+  margin-right: 1%;
+}
+
+#honoree-information label {
+  width: 30%;
+  display: inline-block;
+}
+
+#donate_form label.checkbox {
+  margin-left: 30.4%;
+}
+
+#honoree-information select {
+  width: 31.5%;
+  margin-right: 37%;
+}
+
+#honoree-information input[type="text"],
+#honoree-information textarea {
+  width: 30%;
+  margin-right: 38%;
+}
+
+#ecard-info table {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+#ecard-info table tr {
+  display: inline-block;
 }
 
 #ecard-info button {
+  margin-left: 30.4%;
   font-weight: bold;
 }
 
@@ -181,22 +313,27 @@ input[type="radio"] {
   line-height: 120%;
   text-align: center;
   padding: 15px;
-  margin: 15px -10px 0;
+  margin: 15px -40px 0;
 }
 
 #donate_form input.half {
-  width: 117px;
-  display: block;
+  width: 19.5%;
+  margin-right: 0;
 }
 
-#donate_form select.half {
-  width: 132px;
-  margin-right: 5px;
+#donate_form .expiration select.half {
+  width: 45%;
+}
+
+#donate_form .expiration select.half:first-child {
+  margin-right: 8%;
 }
 
 #payment-type-images {
-  margin-bottom: 10px;
-  text-align: center;
+  width: 30%;
+  display: inline-block;
+  margin-right: 38%;
+  margin-bottom: 3px;
 }
 
 #payment-type-images img{
@@ -209,16 +346,26 @@ input[type="radio"] {
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
+  margin-left: -62%;
+  margin-top: -12px;
 }
 
 #whats-this:hover {
   text-decoration: underline;
 }
 
+#whats-this-info {
+  padding: 0 20% 0 30%;
+}
+
+#whats-this-info label {
+  width: inherit;
+}
+
 .submit-warning {
-  width:60%;
-  color:red;
-  padding-right:10px
+  width: 89%;
+  padding-right: 75%;
+  color: red;
 }
 
 .verisign {
@@ -228,9 +375,9 @@ input[type="radio"] {
 
 #donate-submit {
   display: block;
-  width: 100%;
+  width: 32%;
   padding: 6px 19px;
-  margin-bottom: 0;
+  margin: -65px 0 10px 30.5%;
   font-size: 24px;
   text-align: center;
   vertical-align: middle;
