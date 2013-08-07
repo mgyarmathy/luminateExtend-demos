@@ -78,14 +78,14 @@
                     <input type="hidden" name="form_id" value="13241">
                     <input type="hidden" name="validate" value="true">
                     
-                    <fieldset id="donation-information">
+                    <fieldset id="donation-information" class="form-section">
                         <h4>Donation Information</h4>
                         <label class="required">Gift Amount</label>
                         <fieldset id="donation-amounts">
                             <!-- donation levels generated here -->
                         </fieldset>
-                        <hr>
                     </fieldset>
+                    <div class="form-section">
                     <h4>Honor/Memorial Gift</h4>
                     <label class="checkbox">
                         <input type="checkbox" id="makeTribute" class="ignore-validate">
@@ -152,7 +152,8 @@
                             </fieldset>
                         </fieldset>
                     </fieldset>
-                    <hr>
+                    </div>
+                    <div class="form-section">
                     <fieldset id="billing-information">
                         <h4>Billing Information</h4>
                         <label class="required">First Name</label>
@@ -555,6 +556,7 @@
                             <span style="font-size:26px; font-weight:normal;">&#187;</span>
                         </button>
                     </fieldset>
+                    </div>
                 </form>
             </div> <!-- end #donate -->
             <div id="confirmation" class="hide"></div>

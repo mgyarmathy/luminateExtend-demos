@@ -62,12 +62,16 @@ input[type="radio"] {
 
 #donate_form {
   width: 280px;
+  margin: 10px auto 0; 
+}
+
+.form-section {
   background-color: #FFF;
-  padding: 10px 10px 25px;
-  margin: 10px auto 0;
-  -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
-  box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
+  padding: 10px 10px 10px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 0px 4px rgba(50, 50, 50, 0.7);
+  -moz-box-shadow:    0px 0px 4px rgba(50, 50, 50, 0.7);
+  box-shadow:         0px 0px 4px rgba(50, 50, 50, 0.7);
 }
 
 .required {
@@ -86,16 +90,16 @@ input[type="radio"] {
 #donate_form input[type="text"],
 #donate_form input[type="email"], 
 #donate_form textarea {
-  width: 260px;
+  width: 245px;
 }
 
 #donate_form select{
-  width: 275px;
+  width: 260px;
 }
 
 #donate_form input[name="other_amount"],
 #donate_form input.designated-amount {
-  width: 80px;
+  width: 70px;
 }
 
 #donate_form input[name="other_amount"]:disabled {
@@ -114,6 +118,7 @@ input[type="radio"] {
 }
 
 #donate_form label.subheading {
+  font-size: 13px;
   font-weight: normal;
   font-style: italic;
   white-space: pre;
@@ -128,9 +133,13 @@ input[type="radio"] {
   padding-top: 0;
 }
 
+#donation-information .designated-amount-label {
+  width: 107px;
+}
+
 .checkbox-label {
   display: inline-block;
-  width: 255px;
+  width: 238px;
   margin-bottom: 10px;
 }
 
@@ -168,29 +177,29 @@ input[type="radio"] {
 }
 
 .ecard-option img {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   background-color: #EBEBEB;
 }
 
 #total {
   background-color: #009933;
   color: white;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   line-height: 120%;
   text-align: center;
   padding: 15px;
-  margin: 15px -10px 0;
+  margin: 15px -10px -10px;
 }
 
 #donate_form input.half {
-  width: 117px;
+  width: 107px;
   display: block;
 }
 
 #donate_form select.half {
-  width: 132px;
+  width: 123px;
   margin-right: 5px;
 }
 
@@ -200,7 +209,7 @@ input[type="radio"] {
 }
 
 #payment-type-images img{
-  height: 25px;
+  height: 23px;
   padding-right: 5px;
 }
 

@@ -44,10 +44,7 @@
             }
         });
         
-        $('#donation-amounts').after('<hr class="hide-mobile">');
-        
-        //check the first donation amount
-        $($('#donation-amounts input[type="radio"]')[0]).prop('checked', true);
+        $('#donation-amounts').after('<hr>');
         
         $('input[name="level_id"]').on('click', function() {
             if ($(this).is('#other')) {
@@ -101,7 +98,7 @@
                               )      
                        */
                        .before( '<input type="hidden" name="sustaining.frequency" value="monthly">'
-                              + '<input type="hidden" name="sustaining.duration" value="0">'
+                              + '<input type="hidden" name="sustaining.duration" value="2">'
                               );
                                              
             $('input[name="giftType"]').on('change', function(){
