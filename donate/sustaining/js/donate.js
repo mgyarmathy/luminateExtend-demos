@@ -71,19 +71,19 @@
                               + '</fieldset>'
                               )
                        /* default range slider */
-                       .before( '<fieldset id="sustaining-info">'
+                       .before( '<fieldset id="sustaining-info" class="hide-mobile">'
                               +   '<label>Gift Duration</label>'
                               +   '<div class="range-slider">'
                               +   '<div id="duration-label">2 Months</div>'
-                              +   '<input id="duration" class="updateTotal" type="range" min="2" max="13" value="2">'
+                              +   '<input class="duration updateTotal" type="range" min="2" max="13" value="2">'
                               +   '</div>'
                               + '</fieldset>'
                               )
-                       /* alternative select box      
-                       .before( '<fieldset id="sustaining-info">'
+                       /* alternative select box */
+                       .before( '<fieldset id="sustaining-info" class="show-mobile">'
                               +   '<label>Gift Duration</label>'
-                              +   '<select id="duration" class="updateTotal">'
-                              +     '<option value="2">2 months</option>'
+                              +   '<select class="duration updateTotal">'
+                              +     '<option value="2" selected>2 months</option>'
                               +     '<option value="3">3 months</option>'
                               +     '<option value="4">4 months</option>'
                               +     '<option value="5">5 months</option>'
@@ -94,11 +94,11 @@
                               +     '<option value="10">10 months</option>'
                               +     '<option value="11">11 months</option>'
                               +     '<option value="12">12 months</option>'
-                              +     '<option value="13" selected>Forever (monthly)</option>'
+                              +     '<option value="13">Forever (monthly)</option>'
                               +   '</select>'
                               + '</fieldset>'
                               )      
-                       */
+                        
                        .before( '<input type="hidden" name="sustaining.frequency" value="monthly">'
                               + '<input type="hidden" name="sustaining.duration" value="2">'
                               );
@@ -113,7 +113,7 @@
                     $('input[name="sustaining.frequency"]').val('one-time');
                 }
             });
-            $('#duration').on('change', function(){
+            $('.duration').on('change', function(){
                 if($(this).val() === "13"){
                     $('#duration-label').text('Forever (monthly)');
                     $('input[name="sustaining.duration"]').val("0");

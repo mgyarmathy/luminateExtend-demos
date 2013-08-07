@@ -116,6 +116,14 @@ input[type="radio"] {
   color: red;
 }
 
+#donate_form .show-mobile {
+  display: none;
+}
+
+#donate_form .hide-mobile {
+  display: block;
+}
+
 #donate_form .designated-amount-label {
   width: 100px;
 }
@@ -249,7 +257,7 @@ input[type="radio"] {
   display: inline-block;
 }
 
-#duration {
+.duration {
   display: inline-block;
   margin-top: 20px;
   margin-right: 10px;

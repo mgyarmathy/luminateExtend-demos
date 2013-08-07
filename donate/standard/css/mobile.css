@@ -120,6 +120,10 @@ input[type="radio"] {
   display: none;
 }
 
+#donate_form .show-mobile {
+  display: block;
+}
+
 #donate_form input[type="text"],
 #donate_form input[type="email"], 
 #donate_form textarea {
