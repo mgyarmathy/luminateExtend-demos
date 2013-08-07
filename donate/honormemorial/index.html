@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
     <link id="layout" rel="stylesheet" href="fullpage.css">
-    <style type="text/css">
+    
+    <style>
         #main {
           margin-top: 15px;
           margin-bottom: 20px;
@@ -52,7 +53,6 @@
                         <button id="layout3" class="btn btn-primary">Layout3</button>
                     </div>
                 </nav>
-                <img id="loading" src="../../img/ajax-loader.gif" style="margin-top: 30px; display:none;"/>
             </div>
         </div>
         <div class="row">
@@ -64,6 +64,7 @@
                 malesuatda at vel erat. In mollis aliquam ante, et faucibus augue interdum quis.</p>
                 <p style="float:right;"><span style="color:red">*</span> = required fields</p>
                 <br style="clear: both;">
+                <img id="loading" src="img/ajax-loader.gif" style="margin: 30px auto 0; display:none;"/>
                 </div>
                 <form id="donate_form">
                     <input name="method" type="hidden" value="donate">
@@ -161,9 +162,9 @@
                         <label class="required">Last Name</label>
                         <input id="billing_name_last" name="billing.name.last" type="text" required>
                         <label class="required">Street 1</label>
-                        <input id="#billing_address_street1" name="billing.address.street1" type="text" required>
+                        <input id="billing_address_street1" name="billing.address.street1" type="text" required>
                         <label>Street 2</label>
-                        <input id="#billing_address_street2" name="billing.address.street2" type="text">
+                        <input id="billing_address_street2" name="billing.address.street2" type="text">
                         <label class="required">City</label>
                         <input id="billing_address_city" name="billing.address.city" type="text" required>
                         <label class="required">State/Province</label>
@@ -222,7 +223,7 @@
                         <label class="required">Postal Code</label>
                         <input id="billing_address_zip" name="billing.address.zip" type="text" required>
                         <label class="required">Country</label>
-                        <select id="#billing_address_country" name="billing.address.country"> 
+                        <select id="billing_address_country" name="billing.address.country"> 
                             <option value="United States" selected="selected">United States</option> 
                             <option value="United Kingdom">United Kingdom</option> 
                             <option value="Afghanistan">Afghanistan</option> 
@@ -558,8 +559,8 @@
                     </fieldset>
                     </div>
                 </form>
+                <div id="confirmation" class="hide"></div>
             </div> <!-- end #donate -->
-            <div id="confirmation" class="hide"></div>
           </div> <!-- end span12 -->
         </div> <!-- end row -->
     </div> <!-- end #main -->

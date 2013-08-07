@@ -1,3 +1,7 @@
+body {
+  padding: 0 !important;
+}
+
 /* from donate.css + bootstrap */
 
 label {
@@ -22,12 +26,29 @@ input[type="radio"] {
 }
 
 #confirmation {
-  background-color: #eee;
-  margin-top: 20px;
+  width: 320px;
   padding: 20px;
-  -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.7);
-  -moz-box-shadow:    0px 0px 10px rgba(50, 50, 50, 0.7);
-  box-shadow:         0px 0px 10px rgba(50, 50, 50, 0.7);
+  background-color: #EBEBEB;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
 }
 
 /*------------------*/
@@ -99,7 +120,7 @@ input[type="radio"] {
 
 #donate_form input[name="other_amount"],
 #donate_form input.designated-amount {
-  width: 70px;
+  width: 60px;
 }
 
 #donate_form input[name="other_amount"]:disabled {
@@ -139,7 +160,7 @@ input[type="radio"] {
 
 .checkbox-label {
   display: inline-block;
-  width: 238px;
+  width: 228px;
   margin-bottom: 10px;
 }
 
@@ -177,8 +198,8 @@ input[type="radio"] {
 }
 
 .ecard-option img {
-  width: 90px;
-  height: 90px;
+  width: 85px;
+  height: 85px;
   background-color: #EBEBEB;
 }
 
