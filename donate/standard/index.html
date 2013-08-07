@@ -7,7 +7,7 @@
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="fullpage.css">
+    <link id="layout" rel="stylesheet" href="css/fullpage.css">
     
     <style>
         #main {
@@ -29,7 +29,7 @@
 
     <!-- page-specific javascript -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script src="donate.js"></script>
+    <script src="js/donate.js"></script>
 </head>
 
 <body>
@@ -505,7 +505,7 @@
             $("#donate_form label.error").remove();
             $("#donate_form input.error").removeClass('error');
             $('#layouts button').removeClass('active');
-            $('#layout').prop('href', $(this).attr('id') + '.css');
+            $('#layout').prop('href', 'css/' + $(this).attr('id') + '.css');
             $(this).addClass('active');
             $("#donate_form").validate();
         });
