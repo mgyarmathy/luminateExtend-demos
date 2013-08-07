@@ -59,6 +59,7 @@
         //handle autorepeat donation option
 		if (data.getDonationFormInfoResponse.supportsSustaining == 'true') {
 			$('#total').before( '<label class="required">Gift Type</label>'
+                              + '<fieldset id="gift-type">'
                               + '<label class="radio">'
                               +   '<input class="updateTotal" type="radio" name="giftType" value="sustaining" checked>'
                               +   'Sustaining Gift'
@@ -67,6 +68,7 @@
                               +   '<input class="updateTotal" type="radio" name="giftType" value="oneTime">'
                               +   'One-time Gift'
                               + '</label>'
+                              + '</fieldset>'
                               )
                        /* default range slider */
                        .before( '<fieldset id="sustaining-info">'
@@ -207,6 +209,7 @@
     function submitForm(){
         if($('#donate_form').valid()) {
             $('#donate_form').fadeOut('slow').hide();
+            $('#sidebar-box').fadeOut('slow').hide();
             $('#loading').show();
             var params = '';
             if( $('input[name="autorepeat"]').is(':checked') ){

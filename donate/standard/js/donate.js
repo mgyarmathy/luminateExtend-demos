@@ -124,6 +124,7 @@
     function submitForm(){
         if($('#donate_form').valid()) {
             $('#donate_form').fadeOut('slow').hide();
+            $('#sidebar-box').fadeOut('slow').hide();
             $('#loading').show();
             var params = '';
             if( $('input[name="autorepeat"]').is(':checked') ){
