@@ -109,10 +109,10 @@
                                      }
                     }
         , errorPlacement: function(error, element) {
-            if ($('#layout').attr('href') == 'mobile.css') {
+            if ($('#layout').attr('href') === 'css/mobile.css' || $('#layout').attr('href') === 'css/two-column.css') {
                 element.before(error);
             }
-            else if ($('#layout').attr('href') == 'fullpage.css') {
+            else {
                 element.after(error);
             }
           }
