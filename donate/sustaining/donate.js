@@ -29,7 +29,7 @@
                                              +    'Other Amount:'
                                              + '<div class="input-prepend input-append">'
                                              +    '<span class="add-on">$</span>'
-                                             +    '<input class="input-small" style="text-align:right" name="other_amount" type="text" disabled>'
+                                             +    '<input class="updateTotal" style="text-align:right" name="other_amount" type="text" disabled>'
                                              +    '<span class="add-on">.00</span>'
                                              + '</div>'
                                              + '</label>'
