@@ -84,7 +84,7 @@
     }
     
     var requireCreditCardInfo = function() {
-        return ($('.donation-form [name="method"]').val() === 'donate');
+        return ($('#donate_form [name="method"]').val() === 'donate');
     }
     
     $.validator.messages.required = '&nbsp;<i class="icon-exclamation-sign"></i> Required';
@@ -119,10 +119,10 @@
                                      }
                     }
         , errorPlacement: function(error, element) {
-            if ($('#layout').attr('href') == 'mobile.css') {
+            if ($('#layout').attr('href') === 'css/mobile.css' || $('#layout').attr('href') === 'css/two-column.css') {
                 element.before(error);
             }
-            else if ($('#layout').attr('href') == 'fullpage.css') {
+            else {
                 element.after(error);
             }
           }

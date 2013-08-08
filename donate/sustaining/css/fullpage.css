@@ -21,9 +21,9 @@ label.error {
   color: red;
 }
 
-#billing-information label.error 
-#payment-information lable.error {
-  width: 9%;
+#billing-information label.error, 
+#payment-information label.error {
+  width: 12%;
   vertical-align: middle;
 }
 

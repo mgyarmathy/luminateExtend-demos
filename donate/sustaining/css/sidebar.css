@@ -21,9 +21,10 @@ label.error {
   color: red;
 }
 
-#billing-information label.error 
-#payment-information lable.error {
-  width: 9%;
+#billing-information label.error,
+#payment-information label.error,
+#designees label.error {
+  width: 15%;
   vertical-align: middle;
 }
 
@@ -209,12 +210,12 @@ input[type="radio"] {
 
 #billing-information input[type="text"],
 #billing-information input[type="email"] {
-  width: 50%;
+  width: 45%;
   margin-right: 10%;
 }
 
 #billing-information select {
-  width: 52.5%;
+  width: 47.5%;
   margin-right: 12%;
 }
 
@@ -230,19 +231,19 @@ input[type="radio"] {
 }
 
 #payment-information input[type="text"] {
-  width: 50%;
+  width: 45%;
   margin-right: 10%;
 }
 
 #payment_type {
   margin-top: 10px;
   margin-left: 30.7%;
-  width: 52.5%;
+  width: 47.5%;
 }
 
 .expiration {
   display: inline-block;
-  width: 52.5%;
+  width: 47.5%;
   margin-right: 10%;
 }
 
@@ -300,7 +301,7 @@ input[type="radio"] {
 
 #designees select {
   display: inline-block;
-  width: 52.5%;
+  width: 47.5%;
   margin-right: 12%;
   margin-bottom: 8px;
 }
@@ -320,13 +321,13 @@ input[type="radio"] {
 }
 
 #honoree-information select {
-  width: 52.5%;
+  width: 47.5%;
   margin-right: 12%;
 }
 
 #honoree-information input[type="text"],
 #honoree-information textarea {
-  width: 50%;
+  width: 45%;
   margin-right: 10%;
 }
 

@@ -7,7 +7,7 @@
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="css/sidebar.css">
+    <link id="layout" rel="stylesheet" href="css/two-column.css">
     
     <style>
         #main {
@@ -50,7 +50,8 @@
                         Layouts: 
                         <button id="mobile" class="btn btn-primary">Mobile</button>
                         <button id="fullpage" class="btn btn-primary">Full Page</button>
-                        <button id="sidebar" class="btn btn-primary active">Sidebar</button>
+                        <button id="sidebar" class="btn btn-primary">Sidebar</button>
+                        <button id="two-column" class="btn btn-primary active">2-Column</button>
                     </div>
                 </nav>
             </div>
@@ -79,6 +80,7 @@
                     <input type="hidden" name="form_id" value="13241">
                     <input type="hidden" name="validate" value="true">
                     
+                    <div class="column">
                     <fieldset id="donation-information" class="form-section">
                         <h4>Donation Information</h4>
                         <label class="required">Gift Amount</label>
@@ -94,14 +96,14 @@
                     </label>
                     <fieldset id="honoree-information" style="display:none;">
                         <label class="required">Gift Type</label>
-                        <select name="tribute.type" class="input-medium">
+                        <select name="tribute.type">
                             <option value="memorial">In Memory Of</option>
                             <option value="tribute">In Honor Of</option>
                         </select>
                         <label class="notice">
                             Choose the "In Memory Of" option only if the person you are honoring is deceased.)
                         </label>
-                        <label>Dedicate To</label>
+                        <label class="required">Dedicate To</label>
                         <input id="honoree_name" name="tribute.honoree.name.full" type="text">
                         <hr>
                         <fieldset id="ecard" style="margin-bottom:15px">
@@ -154,6 +156,8 @@
                         </fieldset>
                     </fieldset>
                     </div>
+                    </div>
+                    <div class="column">
                     <div class="form-section">
                     <fieldset id="billing-information">
                         <h4>Billing Information</h4>
@@ -557,6 +561,7 @@
                             <span style="font-size:26px; font-weight:normal;">&#187;</span>
                         </button>
                     </fieldset>
+                    </div>
                     </div>
                 </form>
                 <div id="confirmation" class="hide"></div>

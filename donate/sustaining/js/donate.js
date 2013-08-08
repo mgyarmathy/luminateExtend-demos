@@ -194,10 +194,10 @@
                                      }
                     }
         , errorPlacement: function(error, element) {
-            if ($('#layout').attr('href') == 'mobile.css') {
+            if ($('#layout').attr('href') === 'css/mobile.css' || $('#layout').attr('href') === 'css/two-column.css') {
                 element.before(error);
             }
-            else if ($('#layout').attr('href') == 'fullpage.css') {
+            else {
                 element.after(error);
             }
           }
@@ -307,17 +307,17 @@
             case "MasterCard":
             case "American Express":
             case "Discover": 
-                $(".donation-form [name='method']").val('donate');
+                $("#donate_form [name='method']").val('donate');
                 $("#credit-details").show();
                 break;
             case "Amazon":
-                $(".donation-form [name='method']").val('startDonation');
-                $(".donation-form [name='extproc']").val('amazon');
+                $("#donate_form [name='method']").val('startDonation');
+                $("#donate_form [name='extproc']").val('amazon');
                 $("#credit-details").hide();
                 break;
             case "PayPal":
-                $(".donation-form [name='method']").val('startDonation');
-                $(".donation-form [name='extproc']").val('paypal');
+                $("#donate_form [name='method']").val('startDonation');
+                $("#donate_form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
         }

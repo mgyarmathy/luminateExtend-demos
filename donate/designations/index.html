@@ -7,7 +7,7 @@
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="css/sidebar.css">
+    <link id="layout" rel="stylesheet" href="css/two-column.css">
     
     <style>
         #main {
@@ -50,7 +50,8 @@
                         Layouts: 
                         <button id="mobile" class="btn btn-primary">Mobile</button>
                         <button id="fullpage" class="btn btn-primary">Full Page</button>
-                        <button id="sidebar" class="btn btn-primary active">Sidebar</button>
+                        <button id="sidebar" class="btn btn-primary">Sidebar</button>
+                        <button id="two-column" class="btn btn-primary active">2-Column</button>
                     </div>
                 </nav>
             </div>
@@ -79,7 +80,8 @@
                     <!-- Change/add donation form id and level ids below -->
                     <input type="hidden" name="form_id" value="13700">
                     <input type="hidden" name="validate" value="true">
-
+                    
+                    <div class="column">
                     <fieldset id="donation-information" class="form-section">
                         <fieldset id="designees">
                             <h4>Allocate Your Gift</h4>
@@ -89,6 +91,8 @@ designees using the drop-down lists below.</label>
                         </fieldset>
                         <div id="total">Total Donation:</br>$0.00</div>
                     </fieldset>
+                    </div>
+                    <div class="column">
                     <div class="form-section">
                     <fieldset id="billing-information">
                         <h4>Billing Information</h4>
@@ -493,6 +497,7 @@ designees using the drop-down lists below.</label>
                         </button>
                         </div>
                     </fieldset>
+                    </div>
                 </form>
                 <div id="confirmation" class="hide"></div>
                 <div id="sidebar-box" class="form-section"></div>
