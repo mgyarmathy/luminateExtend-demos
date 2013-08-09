@@ -371,6 +371,7 @@ input[type="radio"] {
 #donation-information label.radio {
   display: inline-block;
   width: 40%;
+  margin-bottom: 20px;
 }
 
 #donation-amounts {
@@ -380,6 +381,7 @@ input[type="radio"] {
 
 #donation-amounts label {
   padding: 5px 0;
+  margin-bottom: 15px;
   font-weight: normal;
   display: inline-block;
 }
@@ -404,13 +406,13 @@ input[type="radio"] {
 
 #billing-information input[type="text"],
 #billing-information input[type="email"] {
-  width: 30%;
-  margin-right: 38%;
+  width: 35%;
+  margin-right: 25%;
 }
 
 #billing-information select {
-  width: 31.5%;
-  margin-right: 37%;
+  width: 36.8%;
+  margin-right: 25%;
 }
 
 #email-opt-in,
@@ -425,20 +427,20 @@ input[type="radio"] {
 }
 
 #payment-information input[type="text"] {
-  width: 30%;
-  margin-right: 38%;
+  width: 35%;
+  margin-right: 25%;
 }
 
 #payment_type {
   margin-top: 10px;
   margin-left: 30.4%;
-  width: 31.5%;
+  width: 36.5%;
 }
 
 .expiration {
   display: inline-block;
-  width: 32%;
-  magin-right: 37%;
+  width: 37%;
+  margin-right: 25%;
 }
 
 #payment-information .cvv {
@@ -456,19 +458,21 @@ input[type="radio"] {
 }
 
 .range-slider {
-  text-align: center;
   display: inline-block;
+  width: 43%;
 }
 
 .duration {
   display: inline-block;
   margin-top: 20px;
   margin-right: 10px;
+  width: 50%;
   clear: both;
 }
 
 #duration-label {
   display: inline-block;
+  text-align: center;
   float: right;
   margin: 15px auto;
   border: #EBEBEB 1px solid;
@@ -491,14 +495,14 @@ input[type="radio"] {
 
 #designees table {
   width: 75%;
-  margin-bottom: 14px;
+  margin-bottom: 30px;
 }
 
 #designees select {
   display: inline-block;
   width: 31.5%;
   margin-right: 37%;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 #designees select.error {
@@ -563,7 +567,7 @@ input[type="radio"] {
 }
 
 #donate_form input.half {
-  width: 19.5%;
+  width: 22%;
   margin-right: 0;
 }
 
@@ -576,9 +580,9 @@ input[type="radio"] {
 }
 
 #payment-type-images {
-  width: 30%;
+  width: 40%;
   display: inline-block;
-  margin-right: 38%;
+  margin-right: 20%;
   margin-bottom: 3px;
 }
 
@@ -592,7 +596,7 @@ input[type="radio"] {
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
-  margin-left: -62%;
+  margin-left: -58%;
   margin-top: -12px;
 }
 
@@ -609,19 +613,19 @@ input[type="radio"] {
 }
 
 .submit-warning {
-  width: 90%;
-  padding-right: 75%;
+  width: 85%;
+  padding-right: 66%;
   color: red;
 }
 
-.verisign {
-  background-image: url('../img/verisign.png');
-  background-size: 100% 100%;
+.verisign img{
+  height: 72px;
+  width: 109px;
 }
 
 #donate-submit {
   display: block;
-  width: 32%;
+  width: 37%;
   padding: 6px 19px;
   margin: -65px 0 10px 30.5%;
   font-size: 24px;
