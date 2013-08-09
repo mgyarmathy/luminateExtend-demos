@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <title>Luminate Extend Donation Form Test</title>
     
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="css/mobile.css">
+    <link id="layout" rel="stylesheet" href="css/sidebar.css">
     
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<div style="width: 1024px;">
     <div id="donate">
         <div class="headline">
         <h4>Donate to Lorem Ipsum</h4>
@@ -32,27 +33,94 @@
         <img id="loading" src="img/ajax-loader.gif" style="margin: 30px auto 0; display:none;"/>
         </div>
         <form id="donate_form">
-            <input name="method" type="hidden" value="donate" />
-            <input name="v" type="hidden" value="1.0" />
+            <input name="method" type="hidden" value="donate">
+            <input name="v" type="hidden" value="1.0" >
             <!-- add hidden input for extproc -->
-            <input id="inptextproc" name="extproc" type="hidden" />
+            <input id="inptextproc" name="extproc" type="hidden">
             <!-- add PayPal/Amazon SUCCESS redrect (must be static url) -->
-            <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-success.html" />
+            <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-success.html">
             <!-- add PayPal/Amazon ERROR redrect must be static url) -->
-            <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
+            <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html">
             <!-- Change/add donation form id and level ids below -->
-            <input type="hidden" name="form_id" value="13320">
+            <input type="hidden" name="form_id" value="13241">
             <input type="hidden" name="validate" value="true">
             
-            <div class="form-section">
-            <fieldset id="donation-information">
+            <fieldset id="donation-information" class="form-section">
                 <h4>Donation Information</h4>
                 <label class="required">Gift Amount</label>
                 <fieldset id="donation-amounts">
                     <!-- donation levels generated here -->
                 </fieldset>
-                <hr>
             </fieldset>
+            <div class="form-section">
+            <h4>Honor/Memorial Gift</h4>
+            <label class="checkbox">
+                <input type="checkbox" id="makeTribute" class="ignore-validate">
+                Yes, this is an honor or memorial gift.
+            </label>
+            <fieldset id="honoree-information" style="display:none;">
+                <label class="required">Gift Type</label>
+                <select name="tribute.type" class="input-medium">
+                    <option value="memorial">In Memory Of</option>
+                    <option value="tribute">In Honor Of</option>
+                </select>
+                <label class="notice">
+                    Choose the "In Memory Of" option only if the person you are honoring is deceased.)
+                </label>
+                <label>Dedicate To</label>
+                <input id="honoree_name" name="tribute.honoree.name.full" type="text">
+                <hr>
+                <fieldset id="ecard" style="margin-bottom:15px">
+                    <h4>eCard</h4>
+                    <label class="checkbox">
+                        <input id="ecard-send" class="ignore-validate" type="checkbox" checked>
+                        <input type="hidden" name="ecard.send" value="true">
+                        Yes, I would like to send an eCard.
+                        </br>
+                    </label>
+                    <fieldset id="ecard-info">
+                        <label class="required">Send eCard on</label>
+                        <input type="text" name="ecard.send_date" maxlength="10" placeholder="YYYY-MM-DD">
+                        <label class="required">Send eCard to</label>
+                        <input type="text" id="ecard-recipients" name="ecard.recipients">
+                        <label class="notice">
+                            Separate each recipient email address with a comma.
+                        </label>
+                        <label class="required">Select an eCard</label>
+                        <!-- manually put in eCard values -->
+                        <table>
+                        <tr>
+                            <td class="ecard-option">
+                                <input type="radio" name="ecard.id" value="1901">
+                                <img src="" />
+                            </td>
+                            <td class="ecard-option">
+                                <input type="radio" name="ecard.id" value="1801">
+                                <img src="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ecard-option">
+                                <input type="radio" name="ecard.id" value="1901">
+                                <img src="" />
+                            </td>
+                            <td class="ecard-option">
+                                <input type="radio" name="ecard.id" value="1801">
+                                <img src="" />
+                            </td>
+                        </tr>
+                        </table>
+                        <label>eCard Subject Line</label>
+                        <input type="text" id="ecard-subject" name="ecard.subject" value="">
+                        <label>eCard Message</label>
+                        <textarea id="ecard-message" rows="4" name="ecard.message"></textarea>
+                        <label class="notice">Maximum length: 500 characters</label>
+                        <button id="ecard-preview" class="btn">Preview eCard</button>
+                    </fieldset>
+                </fieldset>
+            </fieldset>
+            </div>
+            <div class="form-section">
             <fieldset id="billing-information">
                 <h4>Billing Information</h4>
                 <label class="required">First Name</label>
@@ -457,10 +525,11 @@
                     <span style="font-size:26px; font-weight:normal;">&#187;</span>
                 </button>
             </fieldset>
-            </div> <!-- end .form-section -->
+            </div>
         </form>
         <div id="confirmation" class="hide"></div>
         <div id="sidebar-box" class="form-section"></div>
-    </div> <!-- end #donate -->    
+    </div> <!-- end #donate -->
+</div>
 </body>
 </html>

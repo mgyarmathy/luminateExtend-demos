@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <title>Luminate Extend Donation Form Test</title>
     
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="css/mobile.css">
+    <link id="layout" rel="stylesheet" href="css/sidebar.css">
     
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<div style="width: 1024px">
     <div id="donate">
         <div class="headline">
         <h4>Donate to Lorem Ipsum</h4>
@@ -32,6 +33,7 @@
         <img id="loading" src="img/ajax-loader.gif" style="margin: 30px auto 0; display:none;"/>
         </div>
         <form id="donate_form">
+        
             <input name="method" type="hidden" value="donate" />
             <input name="v" type="hidden" value="1.0" />
             <!-- add hidden input for extproc -->
@@ -41,18 +43,19 @@
             <!-- add PayPal/Amazon ERROR redrect must be static url) -->
             <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
             <!-- Change/add donation form id and level ids below -->
-            <input type="hidden" name="form_id" value="13320">
+            <input type="hidden" name="form_id" value="13700">
             <input type="hidden" name="validate" value="true">
-            
-            <div class="form-section">
-            <fieldset id="donation-information">
-                <h4>Donation Information</h4>
-                <label class="required">Gift Amount</label>
-                <fieldset id="donation-amounts">
-                    <!-- donation levels generated here -->
+
+            <fieldset id="donation-information" class="form-section">
+                <fieldset id="designees">
+                    <h4>Allocate Your Gift</h4>
+                    <label class="subheading">You can allocate your gift to different
+designees using the drop-down lists below.</label>
+                    <!-- designees generated here -->
                 </fieldset>
-                <hr>
+                <div id="total">Total Donation:</br>$0.00</div>
             </fieldset>
+            <div class="form-section">
             <fieldset id="billing-information">
                 <h4>Billing Information</h4>
                 <label class="required">First Name</label>
@@ -456,11 +459,12 @@
                     Submit Donation 
                     <span style="font-size:26px; font-weight:normal;">&#187;</span>
                 </button>
+                </div>
             </fieldset>
-            </div> <!-- end .form-section -->
         </form>
         <div id="confirmation" class="hide"></div>
         <div id="sidebar-box" class="form-section"></div>
-    </div> <!-- end #donate -->    
+    </div> <!-- end #donate -->
+</div>
 </body>
 </html>

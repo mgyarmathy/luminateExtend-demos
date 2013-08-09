@@ -486,9 +486,9 @@ input[type="radio"] {
   padding-right:10px
 }
 
-.verisign {
-  background-image: url('../img/verisign.png');
-  background-size: 100% 100%;
+.verisign img{
+  width: 120px;
+  height: 60px;
 }
 
 #donate-submit {

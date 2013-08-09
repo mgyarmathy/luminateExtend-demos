@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <title>Luminate Extend Donation Form Test</title>
     
     <!--Bootstrap + page stylesheet -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="css/mobile.css">
+    <link id="layout" rel="stylesheet" href="css/sidebar.css">
     
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,10 +18,20 @@
 
     <!-- page-specific javascript -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script src="js/donate.js"></script>
+    <script type="text/javascript" src="js/donate.js"></script>
+    
+    <script type="text/javascript" src="js/modernizr.min.js"></script>
+    <script>
+        //test whether or not to use range slider polyfill
+        Modernizr.load({
+          test: Modernizr.range,
+          nope: 'js/html5slider.js'
+        });
+    </script>
 </head>
 
 <body>
+<div style="width: 1024px">
     <div id="donate">
         <div class="headline">
         <h4>Donate to Lorem Ipsum</h4>
@@ -41,18 +51,19 @@
             <!-- add PayPal/Amazon ERROR redrect must be static url) -->
             <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
             <!-- Change/add donation form id and level ids below -->
-            <input type="hidden" name="form_id" value="13320">
+            <input type="hidden" name="form_id" value="13720">
             <input type="hidden" name="validate" value="true">
             
-            <div class="form-section">
-            <fieldset id="donation-information">
+            <fieldset id="donation-information" class="form-section">
                 <h4>Donation Information</h4>
                 <label class="required">Gift Amount</label>
                 <fieldset id="donation-amounts">
                     <!-- donation levels generated here -->
                 </fieldset>
-                <hr>
+                <div id="total">Total Donation:</br>$0.00</div>
             </fieldset>
+            
+            <div class="form-section">
             <fieldset id="billing-information">
                 <h4>Billing Information</h4>
                 <label class="required">First Name</label>
@@ -457,10 +468,11 @@
                     <span style="font-size:26px; font-weight:normal;">&#187;</span>
                 </button>
             </fieldset>
-            </div> <!-- end .form-section -->
+            </div>
         </form>
         <div id="confirmation" class="hide"></div>
         <div id="sidebar-box" class="form-section"></div>
-    </div> <!-- end #donate -->    
+    </div> <!-- end #donate -->
+</div>
 </body>
 </html>
