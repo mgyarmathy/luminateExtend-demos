@@ -1,4 +1,227 @@
-/* from donate.css + bootstrap */
+/* bootstrap styles */
+
+h1, h2, h3, h4, h5, h6 {
+margin: 10px 0;
+font-family: inherit;
+font-weight: bold;
+line-height: 20px;
+color: inherit;
+text-rendering: optimizelegibility;
+}
+
+h3 {
+font-size: 24.5px;
+}
+
+table {
+max-width: 100%;
+background-color: transparent;
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+.table {
+width: 100%;
+margin-bottom: 20px;
+}
+
+.table th, .table td {
+padding: 8px;
+line-height: 20px;
+text-align: left;
+vertical-align: middle;
+border-top: 1px solid #dddddd;
+}
+
+.table-bordered th, .table-bordered td {
+border-left: 1px solid #dddddd;
+}
+
+.table-striped tbody>tr:nth-child(odd)>td, .table-striped tbody>tr:nth-child(odd)>th {
+background-color: #f9f9f9;
+}
+
+.table-bordered {
+border: 1px solid #dddddd;
+border-collapse: separate;
+border-left: 0;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.hide {
+  display: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+hr {
+margin: 20px 0;
+border: 0;
+border-top: 1px solid #eeeeee;
+border-bottom: 1px solid #ffffff;
+}
+
+.alert {
+  margin-bottom: 20px;
+  padding: 8px 35px 8px 14px;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #fcf8e3;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.alert-success {
+  border-color: #d6e9c6;
+  background-color: #dff0d8;
+  color: #468847;
+}
+
+button, input, select, textarea {
+margin: 0;
+font-size: 100%;
+vertical-align: middle;
+}
+
+label, input, button, select, textarea {
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+}
+
+input, button, select, textarea {
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+input, textarea, .uneditable-input {
+margin-left: 0;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+display: inline-block;
+height: 20px;
+padding: 4px 6px;
+margin-bottom: 10px;
+font-size: 14px;
+line-height: 20px;
+color: #555555;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+vertical-align: middle;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+background-color: #ffffff;
+border: 1px solid #cccccc;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+-webkit-transition: border linear .2s, box-shadow linear .2s;
+-moz-transition: border linear .2s, box-shadow linear .2s;
+-o-transition: border linear .2s, box-shadow linear .2s;
+transition: border linear .2s, box-shadow linear .2s;
+}
+
+.input-append input, .input-prepend input, .input-append select, .input-prepend select, .input-append .uneditable-input, .input-prepend .uneditable-input {
+position: relative;
+margin-bottom: 0;
+vertical-align: top;
+-webkit-border-radius: 0 4px 4px 0;
+-moz-border-radius: 0 4px 4px 0;
+border-radius: 0 4px 4px 0;
+}
+
+.input-append input, .input-append select, .input-append .uneditable-input {
+-webkit-border-radius: 4px 0 0 4px;
+-moz-border-radius: 4px 0 0 4px;
+border-radius: 4px 0 0 4px;
+}
+
+.input-prepend.input-append input, .input-prepend.input-append select, .input-prepend.input-append .uneditable-input {
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+}
+
+.input-append, .input-prepend {
+font-size: 0;
+white-space: nowrap;
+}
+
+.input-append .add-on, .input-prepend .add-on {
+display: inline-block;
+width: auto;
+height: 20px;
+min-width: 16px;
+padding: 4px 5px;
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+text-align: center;
+text-shadow: 0 1px 0 #ffffff;
+background-color: #eeeeee;
+border: 1px solid #ccc;
+}
+
+.input-append .add-on, .input-prepend .add-on, .input-append .btn, .input-prepend .btn, .input-append .btn-group>.dropdown-toggle, .input-prepend .btn-group>.dropdown-toggle {
+vertical-align: top;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+}
+
+.input-prepend .add-on, .input-prepend .btn {
+margin-right: -1px;
+}
+
+.input-append .add-on, .input-append .btn, .input-append .btn-group {
+margin-left: -1px;
+}
+
+.input-prepend .add-on:first-child, .input-prepend .btn:first-child {
+-webkit-border-radius: 4px 0 0 4px;
+-moz-border-radius: 4px 0 0 4px;
+border-radius: 4px 0 0 4px;
+}
+
+.input-prepend.input-append .add-on:first-child, .input-prepend.input-append .btn:first-child {
+margin-right: -1px;
+-webkit-border-radius: 4px 0 0 4px;
+-moz-border-radius: 4px 0 0 4px;
+border-radius: 4px 0 0 4px;
+}
+
+.input-prepend.input-append .add-on:last-child, .input-prepend.input-append .btn:last-child {
+margin-left: -1px;
+-webkit-border-radius: 0 4px 4px 0;
+-moz-border-radius: 0 4px 4px 0;
+border-radius: 0 4px 4px 0;
+}
+
+select {
+width: 220px;
+border: 1px solid #cccccc;
+background-color: #ffffff;
+}
+
+select, input[type="file"] {
+height: 30px;
+line-height: 30px;
+}
+
+label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
+cursor: pointer;
+}
+
+/**/
 
 label {
   cursor: default;
@@ -12,11 +235,13 @@ input.error {
 label.error {
   display: inline-block;
   color: red;
+  float: right;
 }
 
 #billing-information label.error,
 #payment-information label.error {
   margin-left: 0;
+  margin-right: 8%;
 }
 
 input[type="checkbox"],
@@ -34,26 +259,6 @@ input[type="radio"] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-.alert {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: 20px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-color: #fcf8e3;
-  border: 1px solid #fbeed5;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.alert-success {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-}
-
-/*------------------*/
-
 
 #donate {
   width: 100%;
@@ -134,7 +339,7 @@ input[type="radio"] {
 }
 
 #donate_form .designated-amount-label {
-  width: 162px;
+  width: 143px;
 }
 
 #donate_form input[name="other_amount"],
@@ -155,8 +360,8 @@ input[type="radio"] {
   font-weight: normal;
   font-style: italic;
   line-height: 100%;
-  margin: -5px 0 10px 0;
-  width: 95%;
+  margin: -5px 0 10px 5%;
+  width: 90%;
   display: block;
 }
 
@@ -171,7 +376,6 @@ input[type="radio"] {
 #donation-information label {
   display: block;
   margin-left: 5%;
-  width: inherit;
   vertical-align: top;
 }
 
@@ -188,22 +392,25 @@ input[type="radio"] {
   display: block;
   padding: 5px 0;
   margin-left: 0;
+  margin-bottom: 10px;
   font-weight: normal;
 }
 
 #donation-amounts label.other {
-  margin-top: -10px;
   display: block;
   width: 100%;
   vertical-align: middle;
 }
 
 #gift-type {
-  display: block;
+  display: inline-block;
+  width: inherit;
 }
 
 #gift-type label {
   display: block;
+  margin-top: 5px;
+  margin-bottom: 12px;
 }
 
 
@@ -224,20 +431,10 @@ input[type="radio"] {
   margin-left: 4.5%;
 }
 
-#writeInDesignation input[type="text"] {
-  width: 85%;
-  margin-left: 5%;
-}
-
-#writeInDesignation input.designated-amount {
-  width: 80px;
-  margin-left: 0;
-}
-
 #email-opt-in,
 #writeIn,
 #autorepeat {
-  margin-left: 5%;
+  margin-left: 6%;
 }
 
 #payment-information label {
@@ -285,15 +482,15 @@ input[type="radio"] {
 
 .checkbox-label {
   display: inline-block;
-  width: 88%;
+  width: 85%;
   margin-bottom: 10px;
 }
 
 .range-slider {
-  margin-left: 7%;
-  width: 80%;
+  width: 75%;
   text-align: center;
   display: inline-block;
+  margin-left: 10%;
 }
 
 .duration {
@@ -324,52 +521,44 @@ input[type="radio"] {
 }
 
 #designees table {
-  width: 100%;
-  margin-left: 3%;
-  margin-bottom: 14px;
+  width: 75%;
+  margin-bottom: 25px;
+  margin-left: 3.5%;
 }
 
 #designees select {
   display: inline-block;
-  width: 88.5%;
-  margin: 0 9% 8px 5%;
+  width: 87.5%;
+  margin-right: 12%;
+  margin-bottom: 15px;
+  margin-left: 5%;
 }
 
 #designees select.error {
   margin-right: 1%;
 }
 
-#honoree-information {
-  margin-left: 5%;
-}
-
 #honoree-information label {
   width: inherit;
   display: inline-block;
-}
-
-#honoree-information hr {
-  width: 105%;
-  margin-left: -5%;
+  margin-left: 5%;
 }
 
 #donate_form label.checkbox {
-  margin-left: 5.5%;
   width: inherit;
+  margin-left: 5%;
 }
 
 #honoree-information select {
   width: 87.5%;
-  margin-right: 4.5%;
+  margin-right: 12%;
+  margin-left: 4.7%;
 }
 
 #honoree-information input[type="text"],
 #honoree-information textarea {
-  width: 84%;
-}
-
-#ecard label.checkbox {
-  margin-left: 0;
+  width: 83%;
+  margin-left: 5%;
 }
 
 #ecard-info table {
@@ -405,7 +594,7 @@ input[type="radio"] {
 }
 
 #donate_form input.half {
-  width: 57%;
+  width: 56%;
   margin-right: 0;
 }
 
@@ -418,7 +607,7 @@ input[type="radio"] {
 }
 
 #payment-type-images {
-  width: 70%;
+  width: 80%;
   margin: -58px 0 30px 5%;
 }
 
@@ -432,7 +621,7 @@ input[type="radio"] {
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
-  margin-left: -64%;
+  margin-left: -73%;
   margin-top: 8px;
 }
 
@@ -449,15 +638,14 @@ input[type="radio"] {
 }
 
 .submit-warning {
-  width: 79%;
   padding-left: 6%;
-  padding-right: 22%;
+  padding-right: 18%;
   color: red;
 }
 
-.verisign {
-  background-image: url('../img/verisign.png');
-  background-size: 100% 100%;
+.verisign img {
+  width: 120px;
+  height: 60px;
 }
 
 #donate-submit {
@@ -489,4 +677,20 @@ input[type="radio"] {
   -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+}
+
+/* modifications */
+
+#donation-amounts label.other {
+  vertical-align: top;
+}
+
+#other {
+  margin-top: 4px;
+}
+
+.input-prepend.input-append {
+  display: inline-block;
+  margin-top: -12px;
+  vertical-align: bottom;
 }
