@@ -549,6 +549,9 @@
   height: 25px;
   padding-right: 5px;
 }
+#donate #sidebar-box {
+  display: none;
+}
 #donate #total {
   background-color: #009933;
   color: white;
