@@ -1,11 +1,4 @@
 #donate {
-  /* bootstrap things */
-
-  /*************/
-
-  /*
-#donate {
-*/
   width: 100%;
   padding: 20px 0;
   font-family: sans-serif;
@@ -338,24 +331,6 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-#donate #designees #writeInDesignation input[type="text"] {
-  width: 83%;
-  margin-left: 5%;
-}
-#donate #designees select {
-  display: inline-block;
-  width: 87.5%;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 15px;
-}
-#donate #designees select.error {
-  margin-right: 1%;
-}
-#donate #designees table {
-  width: 75%;
-  margin-bottom: 25px;
-}
 #donate #donate_form {
   width: 100%;
   margin: 10px 5% 0;
@@ -476,19 +451,6 @@
   -moz-box-shadow: inset 0 0 3px #000000;
   box-shadow: inset 0 0 3px #000000;
 }
-#donate #ecard label.checkbox {
-  margin-left: 0 !important;
-}
-#donate #ecard-info button {
-  margin-left: 30.4%;
-  font-weight: bold;
-  padding: 5px 10px;
-}
-#donate #ecard-info table {
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 10px;
-}
 #donate #email-opt-in,
 #donate #writeIn,
 #donate #autorepeat {
@@ -502,24 +464,6 @@
 #donate #gift-type label {
   display: block;
   margin: 10px 5%;
-}
-#donate #honoree-information {
-  margin-top: 10px;
-  margin-left: 5%;
-}
-#donate #honoree-information input[type="text"],
-#donate #honoree-information input[type="date"],
-#donate #honoree-information textarea {
-  width: 83%;
-  height: inherit;
-}
-#donate #honoree-information label {
-  width: inherit;
-  display: inline-block;
-}
-#donate #honoree-information select {
-  width: 87.5%;
-  margin-right: 5%;
 }
 #donate #other {
   margin-top: 4px;
@@ -597,14 +541,6 @@
   width: 100%;
   display: block;
   margin-top: 5px;
-}
-#donate .ecard-option {
-  padding: 0 30px 10px 10px;
-}
-#donate .ecard-option img {
-  width: 95px;
-  height: 95px;
-  background-color: #EBEBEB;
 }
 #donate .expiration {
   display: inline-block;
