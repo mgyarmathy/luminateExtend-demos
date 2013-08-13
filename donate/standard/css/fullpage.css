@@ -1,11 +1,4 @@
 #donate {
-  /* bootstrap things */
-
-  /*************/
-
-  /*
-#donate {
-*/
   width: 100%;
   padding: 20px 0;
   font-family: sans-serif;
@@ -345,13 +338,6 @@
   width: 50%;
   margin-bottom: 10px;
 }
-#donate .duration {
-  display: inline-block;
-  margin-top: 20px;
-  margin-right: 10px;
-  width: 50%;
-  clear: both;
-}
 #donate .form-section {
   background-color: #FFF;
   padding: 20px 30px;
@@ -372,10 +358,6 @@
   display: inline-block;
   margin-top: -12px;
   vertical-align: middle;
-}
-#donate .range-slider {
-  display: inline-block;
-  width: 55%;
 }
 #donate .required {
   display: inline-block;
@@ -407,26 +389,6 @@
 }
 #donate #donate_form #billing-information select.error {
   margin-right: 1% !important;
-}
-#donate #donate_form #designees input[type="text"] {
-  width: 36%;
-  margin-bottom: 18px;
-}
-#donate #donate_form #designees select {
-  display: inline-block;
-  width: 37.5%;
-  margin-right: 25%;
-  margin-bottom: 18px;
-}
-#donate #donate_form #designees select.error {
-  margin-right: 1%;
-}
-#donate #donate_form #designees table {
-  width: 75%;
-  margin-bottom: 30px;
-}
-#donate #donate_form #designees .designated-amount-label {
-  width: 98px;
 }
 #donate #donate_form #donation-amounts {
   display: inline-block;
@@ -486,59 +448,10 @@
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-#donate #donate_form #duration-label {
-  display: inline-block;
-  text-align: center;
-  float: right;
-  margin: 15px auto;
-  border: #EBEBEB 1px solid;
-  width: 130px;
-  padding: 5px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 0 3px #000000;
-  -moz-box-shadow: inset 0 0 3px #000000;
-  box-shadow: inset 0 0 3px #000000;
-}
-#donate #donate_form #ecard-info button {
-  margin-left: 30.4%;
-  font-weight: bold;
-  padding: 5px 10px;
-}
-#donate #donate_form #ecard-info table {
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 10px;
-}
-#donate #donate_form #ecard-info table tr {
-  display: inline-block;
-}
 #donate #donate_form #email-opt-in,
 #donate #donate_form #writeIn,
 #donate #donate_form #autorepeat {
   margin-left: 30%;
-}
-#donate #donate_form #gift-type {
-  display: inline-block;
-  width: 45%;
-}
-#donate #donate_form #honoree-information label {
-  display: inline-block;
-  width: 30%;
-}
-#donate #donate_form #honoree-information label.notice {
-  width: inherit;
-  display: block;
-}
-#donate #donate_form #honoree-information select {
-  width: 36.8%;
-  margin-right: 25%;
-}
-#donate #donate_form #honoree-information input[type="text"],
-#donate #donate_form #honoree-information input[type="date"],
-#donate #donate_form #honoree-information textarea {
-  width: 35%;
-  height: inherit;
-  margin-right: 25%;
 }
 #donate #donate_form #other {
   margin-top: 4px;
@@ -587,16 +500,6 @@
   height: 25px;
   padding-right: 5px;
 }
-#donate #donate_form #total {
-  background-color: #009933;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 120%;
-  text-align: center;
-  padding: 15px;
-  margin: 15px -30px -20px;
-}
 #donate #donate_form #whats-this {
   color: #0088cc;
   background-color: transparent;
@@ -616,17 +519,6 @@
 }
 #donate #donate_form #whats-this-info p {
   margin-bottom: 15px;
-}
-#donate #donate_form .ecard-option {
-  padding-right: 16px;
-  padding-bottom: 10px;
-}
-#donate #donate_form .ecard-option img {
-  min-width: 98px;
-  min-height: 100px;
-  width: 98px;
-  height: 100px;
-  background-color: #EBEBEB;
 }
 #donate #donate_form .submit-warning {
   width: 85%;

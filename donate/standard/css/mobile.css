@@ -1,11 +1,4 @@
 #donate {
-  /* bootstrap things */
-
-  /*************/
-
-  /*
-#donate {
-*/
   padding: 40px 10px;
   margin: 0 auto;
   width: 320px;
@@ -393,15 +386,6 @@
   width: 300px;
   margin: 10px auto 0;
 }
-#donate #donate_form #designees select {
-  margin-bottom: 15px;
-}
-#donate #donate_form #designees table {
-  margin-bottom: 20px;
-}
-#donate #donate_form #designees #writeInDesignation label {
-  margin-bottom: 15px;
-}
 #donate #donate_form #donation-amounts label {
   padding: 5px 0;
   font-weight: normal;
@@ -440,26 +424,6 @@
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-#donate #donate_form #duration-label {
-  margin: 15px auto;
-  border: #EBEBEB 1px solid;
-  width: 130px;
-  padding: 5px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 0 3px #000000;
-  -moz-box-shadow: inset 0 0 3px #000000;
-  box-shadow: inset 0 0 3px #000000;
-}
-#donate #donate_form #ecard-info button {
-  font-weight: bold;
-  padding: 5px 10px;
-}
-#donate #donate_form #ecard-info label {
-  margin-top: 10px;
-}
-#donate #donate_form #ecard-info label.notice {
-  margin-top: 0px;
-}
 #donate #donate_form #other {
   margin-top: 4px;
 }
@@ -470,16 +434,6 @@
 #donate #donate_form #payment-type-images img {
   height: 23px;
   padding-right: 5px;
-}
-#donate #donate_form #total {
-  background-color: #009933;
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
-  line-height: 120%;
-  text-align: center;
-  padding: 15px;
-  margin: 15px -10px -10px;
 }
 #donate #donate_form #whats-this {
   color: #0088cc;
@@ -496,27 +450,10 @@
   width: 250px;
   margin-bottom: 10px;
 }
-#donate #donate_form .designated-amount-label {
-  width: 133px;
-}
-#donate #donate_form .ecard-option {
-  padding-right: 16px;
-  padding-bottom: 20px;
-}
-#donate #donate_form .ecard-option img {
-  min-width: 95px;
-  min-height: 95px;
-  width: 95px;
-  height: 95px;
-  background-color: #EBEBEB;
-}
 #donate #donate_form .submit-warning {
   width: 60%;
   color: red;
   padding-right: 10px;
-}
-#donate #donate_form .range-slider {
-  text-align: center;
 }
 #donate #donate_form .verisign img {
   width: 120px;
