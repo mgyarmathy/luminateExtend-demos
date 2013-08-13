@@ -61,29 +61,29 @@
 			$('#total').before( '<label class="required">Gift Type</label>'
                               + '<fieldset id="gift-type">'
                               + '<label class="radio">'
-                              +   '<input class="updateTotal" type="radio" name="giftType" value="sustaining" checked>'
-                              +   'Sustaining Gift'
-                              + '</label>'
-                              + '<label class="radio">'
                               +   '<input class="updateTotal" type="radio" name="giftType" value="oneTime">'
                               +   'One-time Gift'
+                              + '</label>'
+                              + '<label class="radio">'
+                              +   '<input class="updateTotal" type="radio" name="giftType" value="sustaining" checked>'
+                              +   'Sustaining Gift'
                               + '</label>'
                               + '</fieldset>'
                               )
                        /* default range slider */
-                       .before( '<fieldset id="sustaining-info" class="hide-mobile">'
+                       .before( '<fieldset id="sustaining-info" class="hide-mobile sustaining-info">'
                               +   '<label>Gift Duration</label>'
                               +   '<div class="range-slider">'
-                              +   '<div id="duration-label">2 Months</div>'
-                              +   '<input class="duration updateTotal" type="range" min="2" max="13" value="2">'
+                              +   '<div id="duration-label">Forever (monthly)</div>'
+                              +   '<input class="duration updateTotal" type="range" min="2" max="13" value="13">'
                               +   '</div>'
                               + '</fieldset>'
                               )
                        /* alternative select box */
-                       .before( '<fieldset id="sustaining-info" class="show-mobile">'
+                       .before( '<fieldset id="sustaining-info" class="show-mobile sustaining-info">'
                               +   '<label>Gift Duration</label>'
                               +   '<select class="duration updateTotal">'
-                              +     '<option value="2" selected>2 months</option>'
+                              +     '<option value="2">2 months</option>'
                               +     '<option value="3">3 months</option>'
                               +     '<option value="4">4 months</option>'
                               +     '<option value="5">5 months</option>'
@@ -94,22 +94,22 @@
                               +     '<option value="10">10 months</option>'
                               +     '<option value="11">11 months</option>'
                               +     '<option value="12">12 months</option>'
-                              +     '<option value="13">Forever (monthly)</option>'
+                              +     '<option value="13" selected>Forever (monthly)</option>'
                               +   '</select>'
                               + '</fieldset>'
                               )      
                         
                        .before( '<input type="hidden" name="sustaining.frequency" value="monthly">'
-                              + '<input type="hidden" name="sustaining.duration" value="2">'
+                              + '<input type="hidden" name="sustaining.duration" value="0">'
                               );
                                              
             $('input[name="giftType"]').on('change', function(){
                 if($(this).val() === "sustaining"){
-                    $('#sustaining-info').show();
+                    $('.sustaining-info').show();
                     $('input[name="sustaining.frequency"]').val('monthly');
                 }
                 else if($(this).val() === "oneTime"){
-                    $('#sustaining-info').hide();
+                    $('.sustaining-info').hide();
                     $('input[name="sustaining.frequency"]').val('one-time');
                 }
             });
@@ -152,18 +152,26 @@
                 var months = parseInt($('input[name="sustaining.duration"]').val());
                 if(months == 0){
                     total = level_amount * 12;
-                    $('#total').html('Total Donation:</br> $' + total + '.00 per year');
+                    $('#total').html('Total Donation: $' + total + '.00 per year');
                 }
                 else{
                     total = level_amount * months;
-                    $('#total').html('Total Donation:</br> $' + total + '.00 over ' + months + ' months');
+                    $('#total').html('Total Donation: $' + total + '.00 over ' + months + ' months');
                 }
             }
             else if($('input[name="giftType"]:checked').val() === "oneTime"){
                 total = level_amount;
-                $('#total').html('Total Donation:</br> $' + total + '.00');
+                $('#total').html('Total Donation: $' + total + '.00');
             }
         });
+        
+        //check the first donation amount
+        $($('#donation-amounts input[type="radio"]')[0]).prop('checked', true);
+        $('.updateTotal').trigger('change');
+    }
+    
+    var requireOtherAmount = function() {
+        return $('#other').is(':checked');
     }
     
     var requireCreditCardInfo = function() {
@@ -179,6 +187,9 @@
         , ignore: '.ignore-validate'
         , rules: { 'donor.email': { email: true
                                   }
+                 , 'other_amount': { required: { depends: requireOtherAmount
+                                               }
+                                   }
                  , 'card_number': { required: { depends: requireCreditCardInfo 
                                               }
                                   , creditcard: { depends: requireCreditCardInfo 
@@ -193,12 +204,24 @@
                     , 'card_number': { creditcard: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
                                      }
                     }
+        , groups: { cardInfo: 'card_number card_cvv' }
         , errorPlacement: function(error, element) {
             if ($('#layout').attr('href') === 'css/mobile.css' || $('#layout').attr('href') === 'css/two-column.css') {
-                element.before(error);
+                if (error[0].htmlFor == 'other_amount') {
+                    $('#donation-information').find('label').eq(0).after(error);
+                }
+                else {
+                    element.before(error);
+                }
             }
             else {
-                element.after(error);
+                if (error[0].htmlFor == 'cardInfo') {
+                        $('input[name="card_number"]').css('margin-right', '1%');
+                        $('input[name="card_number"]').after(error);
+                }
+                else {
+                    element.after(error);
+                }
             }
           }
         , submitHandler: submitForm
@@ -320,6 +343,9 @@
                 $("#donate_form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
+            case "":
+                $("#credit-details").hide();
+                break;
         }
     });
     
@@ -336,9 +362,13 @@
         e.preventDefault();
         if ($('#whats-this-info').is(':visible')) {
             $('#whats-this-info').hide();
+            $(this).find('img').eq(0).show();
+            $(this).find('img').eq(1).hide();
         }
         else {
             $('#whats-this-info').show();
+            $(this).find('img').eq(0).hide();
+            $(this).find('img').eq(1).show();
         }
     });
     

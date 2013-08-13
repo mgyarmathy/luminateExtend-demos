@@ -24,7 +24,7 @@
     <script>
         //test whether or not to use range slider polyfill
         Modernizr.load({
-          test: Modernizr.range,
+          test: Modernizr.inputtypes.range,
           nope: 'js/html5slider.js'
         });
     </script>
@@ -61,7 +61,7 @@
                 <fieldset id="donation-amounts">
                     <!-- donation levels generated here -->
                 </fieldset>
-                <div id="total">Total Donation:</br>$0.00</div>
+                <div id="total">Total Donation: $0.00</div>
             </fieldset>
             </div>
             
@@ -80,63 +80,91 @@
                 <label class="required">City</label>
                 <input id="billing_address_city" name="billing.address.city" type="text" required>
                 <label class="required">State/Province</label>
-                <select id="billing_address_state" name="billing.address.state">
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
+                <select id="billing_address_state" name="billing.address.state" required>
+                    <option selected value="">Select</option>
+                    <option value="AK">AK - Alaska</option>
+                    <option value="AL">AL - Alabama</option>
+                    <option value="AR">AR - Arkansas</option>
+                    <option value="AZ">AZ - Arizona</option>
+                    <option value="CA">CA - California</option>
+                    <option value="CO">CO - Colorado</option>
+                    <option value="CT">CT - Connecticut</option>
+                    <option value="DC">DC - District of Columbia</option>
+                    <option value="DE">DE- Delaware</option>
+                    <option value="FL">FL - Florida</option>
+                    <option value="GA">GA - Georgia</option>
+                    <option value="HI">HA - Hawaii</option>
+                    <option value="IA">IA - Iowa</option>
+                    <option value="ID">ID - Idaho</option>
+                    <option value="IL">IL - Illinois</option>
+                    <option value="IN">IN - Indiana</option>
+                    <option value="KS">KS - Kansas</option>
+                    <option value="KY">KY - Kentucky</option>
+                    <option value="LA">LA - Louisiana</option>
+                    <option value="MA">MA - Massachusetts</option>
+                    <option value="MD">MD - Maryland</option>
+                    <option value="ME">ME - Maine</option>
+                    <option value="MI">MI - Michigan</option>
+                    <option value="MN">MN - Minnesota</option>
+                    <option value="MO">MO - Missouri</option>
+                    <option value="MS">MS - Mississippi</option>
+                    <option value="MT">MT - Montana</option>
+                    <option value="NC">NC - North Carolina</option>
+                    <option value="ND">ND - North Dakota</option>
+                    <option value="NE">NE - Nebraska</option>
+                    <option value="NH">NH - New Hampshire</option>
+                    <option value="NJ">NJ - New Jersey</option>
+                    <option value="NM">NM - New Mexico</option>
+                    <option value="NV">NV - Nevada</option>
+                    <option value="NY">NY - New York</option>
+                    <option value="OH">OH - Ohio</option>
+                    <option value="OK">OK - Oklahoma</option>
+                    <option value="OR">OR - Oregon</option>
+                    <option value="PA">PA - Pennsylvania</option>
+                    <option value="RI">RI - Rhode Island</option>
+                    <option value="SC">SC - South Carolina</option>
+                    <option value="SD">SD - South Dakota</option>
+                    <option value="TN">TN - Tennessee</option>
+                    <option value="TX">TX - Texas</option>
+                    <option value="UT">UT - Utah</option>
+                    <option value="VA">VA - Virginia</option>
+                    <option value="VT">VT - Vermont</option>
+                    <option value="WA">WA - Washington</option>
+                    <option value="WI">WI - Wisconsin</option>
+                    <option value="WV">WV - West Virginia</option>
+                    <option value="WY">WY - Wyoming</option>
+                    <option value="AS">AS - American Samoa</option>
+                    <option value="FM">FM - Federated States of Micronesia</option>
+                    <option value="GU">GU - Guam</option>
+                    <option value="MH">MH - Marshall Islands</option>
+                    <option value="MP">MP - Northern Mariana Islands</option>
+                    <option value="PR">PR - Puerto Rico</option>
+                    <option value="PW">PW - Palau</option>
+                    <option value="VI">VI - Virgin Islands</option>
+                    <option value="AA">AA - Armed Forces Americas</option>
+                    <option value="AE">AE - Armed Forces</option>
+                    <option value="AP">AE - Armed Forces Pacific</option>
+                    <option value="AB">AB - Alberta</option>
+                    <option value="BC">BC - British Columbia</option>
+                    <option value="MB">MB - Manitoba</option>
+                    <option value="NB">NB - New Brunswick</option>
+                    <option value="NF">NF - Newfoundland and Labrador</option>
+                    <option value="NS">NS - Nova Scotia</option>
+                    <option value="NT">NT - Northwest Territories</option>                            
+                    <option value="NU">NU - Nunavut</option>
+                    <option value="ON">ON - Ontario</option>
+                    <option value="PE">PE - Prince Edward Island</option>
+                    <option value="QC">QC - Quebec</option>
+                    <option value="SK">SK - Saskatchewan</option>
+                    <option value="YT">YT - Yukon</option>
+                    <option value="None">None</option>
                 </select>
                 <label class="required">Postal Code</label>
                 <input id="billing_address_zip" name="billing.address.zip" type="text" required>
                 <label class="required">Country</label>
-                <select id="billing_address_country" name="billing.address.country"> 
-                    <option value="United States" selected="selected">United States</option> 
+                <select id="billing_address_country" name="billing.address.country" required>
+                    <option selected value="">Select</option>
+                    <option value="United States">United States</option> 
                     <option value="United Kingdom">United Kingdom</option> 
                     <option value="Afghanistan">Afghanistan</option> 
                     <option value="Albania">Albania</option> 
@@ -399,7 +427,7 @@
                     <img src="img/paypal.png" />
                 </div>
                 <select id="payment_type" name="payment_type" class="" required>
-                  <option>Select Payment Method</option>
+                  <option value="">Select Payment Method</option>
                  </select>
                 <fieldset id="credit-details" class="hide">
                   <label class="required">Card Number</label>
@@ -435,10 +463,10 @@
                     <tr>
                     <td>
                     <label class="required">CVV</label>
-                    <input name="card_cvv" type="text" class="half ignore-validate">
+                    <input name="card_cvv" type="text" class="half">
                     </td>
                     <td>
-                        <button id="whats-this">What is this?</button>
+                        <button id="whats-this"><img src="img/whatsthis-open.png" style="width: 16px; height:16px; vertical-align: middle; padding-right:5px;" /><img src="img/whatsthis-close.png" style="width: 16px; height:16px; vertical-align: middle; padding-right:5px; display:none" />What is this?</button>
                     </td>
                     </tr>
                     </table>

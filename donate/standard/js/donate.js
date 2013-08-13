@@ -30,7 +30,7 @@
                                              +    'Other Amount:'
                                              + '<div class="input-prepend input-append">'
                                              +    '<span class="add-on">$</span>'
-                                             +    '<input class="input-small" style="text-align:right" name="other_amount" type="text" disabled>'
+                                             +    '<input name="other_amount" type="text" disabled>'
                                              +    '<span class="add-on">.00</span>'
                                              + '</div>'
                                              + '</label>'
@@ -78,6 +78,10 @@
         });
     }
     
+    var requireOtherAmount = function() {
+        return $('#other').is(':checked');
+    }
+    
     var requireCreditCardInfo = function() {
         return ($('#donate_form [name="method"]').val() === 'donate');
     }
@@ -91,8 +95,8 @@
         , ignore: '.ignore-validate'
         , rules: { 'donor.email': { email: true
                                   }
-                 , 'other_amount': { min: 5 //to handle $5-minimum to prevent fraud
-                                   , number: true
+                 , 'other_amount': { required: { depends: requireOtherAmount
+                                               }
                                    }
                  , 'card_number': { required: { depends: requireCreditCardInfo 
                                               }
@@ -108,12 +112,24 @@
                     , 'card_number': { creditcard: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
                                      }
                     }
+        , groups: { cardInfo: 'card_number card_cvv' }
         , errorPlacement: function(error, element) {
             if ($('#layout').attr('href') === 'css/mobile.css' || $('#layout').attr('href') === 'css/two-column.css') {
-                element.before(error);
+                if (error[0].htmlFor == 'other_amount') {
+                    $('#donation-information').find('label').eq(0).after(error);
+                }
+                else {
+                    element.before(error);
+                }
             }
             else {
-                element.after(error);
+                if (error[0].htmlFor == 'cardInfo') {
+                        $('input[name="card_number"]').css('margin-right', '1%');
+                        $('input[name="card_number"]').after(error);
+                }
+                else {
+                    element.after(error);
+                }
             }
           }
         , submitHandler: submitForm
@@ -243,6 +259,9 @@
                 $("#donate_form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
+            case "":
+                $("#credit-details").hide();
+                break;
         }
     });
     
@@ -259,9 +278,13 @@
         e.preventDefault();
         if ($('#whats-this-info').is(':visible')) {
             $('#whats-this-info').hide();
+            $(this).find('img').eq(0).show();
+            $(this).find('img').eq(1).hide();
         }
         else {
             $('#whats-this-info').show();
+            $(this).find('img').eq(0).hide();
+            $(this).find('img').eq(1).show();
         }
     });
     

@@ -41,7 +41,7 @@
                                   + '<td>'
                                   + '<div class="input-prepend input-append">'
                                   +   '<span class="add-on">$</span>'
-                                  +   '<input class="designated-amount" style="text-align:right" name="designated.0.amount" type="text" value="0" required>'
+                                  +   '<input class="designated-amount" style="text-align:right" name="designated.0.amount" type="text" required>'
                                   +   '<span class="add-on">.00</span>'
                                   + '</div>'
                                   + '</td>'
@@ -60,7 +60,7 @@
                                       + '<td>'
                                       + '<div class="input-prepend input-append">'
                                       +   '<span class="add-on">$</span>'
-                                      +   '<input class="designated-amount" style="text-align:right" name="designated.' + i + '.amount" type="text" value="0">'
+                                      +   '<input class="designated-amount" style="text-align:right" name="designated.' + i + '.amount" type="text">'
                                       +   '<span class="add-on">.00</span>'
                                       + '</div>'
                                       + '</td>'
@@ -94,7 +94,7 @@
                                   +     '<td>'
                                   +       '<div class="input-prepend input-append">'
                                   +         '<span class="add-on">$</span>'
-                                  +         '<input class="input-small designated-amount" style="text-align:right" name="designated_write_in.10.amount" type="text" value="0">'
+                                  +         '<input class="designated-amount" style="text-align:right" name="designated_write_in.10.amount" type="text">'
                                   +         '<span class="add-on">.00</span>'
                                   +       '</div>'
                                   +     '</td>'
@@ -117,9 +117,11 @@
         $('.designated-amount').on('change', function(){
             var total = 0;
             $('.designated-amount').each(function(){
-                total += parseInt($(this).val());
+                if( $(this).val()) {
+                  total += parseInt($(this).val());
+                }
             });
-            $('#total').html('Total Donation:</br> $' + total + '.00');
+            $('#total').html('Total Donation: $' + total + '.00');
             if ($('input[name="autorepeat"]').is(':checked')) {
                 $('#total').append(' per month');
             }
@@ -148,6 +150,10 @@
         });
     }
     
+    var requireWriteInInfo = function() {
+        return $('#writeIn').is(':checked');
+    }
+    
     var requireCreditCardInfo = function() {
         return ($('#donate_form [name="method"]').val() === 'donate');
     }
@@ -161,9 +167,15 @@
         , ignore: '.ignore-validate'
         , rules: { 'donor.email': { email: true
                                   }
-                 , 'other_amount': { min: 5 //to handle $5-minimum to prevent fraud
-                                   , number: true
-                                   }
+                 , 'designated_write_in.10.name' : { required: { depends: requireWriteInInfo
+                                                               }
+                                                   }
+                 , 'designated_write_in.10.amount' : { required: { depends: requireWriteInInfo
+                                                                 }
+                                                     }
+                 , 'designated_write_in.10.contact' : { required: { depends: requireWriteInInfo
+                                                                  }
+                                                      }
                  , 'card_number': { required: { depends: requireCreditCardInfo 
                                               }
                                   , creditcard: { depends: requireCreditCardInfo 
@@ -178,12 +190,30 @@
                     , 'card_number': { creditcard: '&nbsp;<i class="icon-exclamation-sign"></i> Invalid'
                                      }
                     }
+        , groups: { designated: 'designated.0.id designated.0.amount'
+                  , writeIn: 'designated_write_in.10.name designated_write_in.10.amount'
+                  , cardInfo: 'card_number card_cvv'
+                  }
         , errorPlacement: function(error, element) {
             if ($('#layout').attr('href') === 'css/mobile.css' || $('#layout').attr('href') === 'css/two-column.css') {
-                element.before(error);
+                if (element.attr('name') == 'designated.0.id' || element.attr('name') == 'designated.0.amount') {
+                    $('#designees').find('label').eq(1).after(error);
+                }
+                else if (element.attr('name') == 'designated_write_in.10.name' || element.attr('name') == 'designated_write_in.10.amount') {
+                    $('#writeInDesignation').find('label').eq(0).after(error);
+                }
+                else {
+                    element.before(error);
+                }
             }
             else {
-                element.after(error);
+                if (error[0].htmlFor == 'cardInfo') {
+                        $('input[name="card_number"]').css('margin-right', '1%');
+                        $('input[name="card_number"]').after(error);
+                }
+                else {
+                    element.after(error);
+                }
             }
           }
         , submitHandler: submitForm
@@ -305,6 +335,9 @@
                 $("#donate_form [name='extproc']").val('paypal');
                 $("#credit-details").hide();
                 break;
+            case "":
+                $("#credit-details").hide();
+                break;
         }
     });
     
@@ -321,9 +354,13 @@
         e.preventDefault();
         if ($('#whats-this-info').is(':visible')) {
             $('#whats-this-info').hide();
+            $(this).find('img').eq(0).show();
+            $(this).find('img').eq(1).hide();
         }
         else {
             $('#whats-this-info').show();
+            $(this).find('img').eq(0).hide();
+            $(this).find('img').eq(1).show();
         }
     });
     
