@@ -1,11 +1,4 @@
 #donate {
-  /* bootstrap things */
-
-  /*************/
-
-  /*
-#donate {
-*/
   width: 100%;
   padding: 20px 0;
   font-family: sans-serif;
@@ -437,22 +430,6 @@
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-#donate #donation-amounts {
-  width: 90%;
-  margin-left: 5%;
-}
-#donate #donation-amounts label {
-  display: block;
-  padding: 5px 0;
-  margin-left: 0;
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-#donate #donation-amounts label.other {
-  display: block;
-  width: 100%;
-  vertical-align: top;
-}
 #donate #donation-information label {
   display: block;
   margin-left: 5%;
@@ -465,58 +442,10 @@
 #donate #donation-information label.error {
   padding-right: 8%;
 }
-#donate #duration-label {
-  display: inline-block;
-  margin: 15px auto;
-  border: #EBEBEB 1px solid;
-  width: 130px;
-  padding: 5px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 0 3px #000000;
-  -moz-box-shadow: inset 0 0 3px #000000;
-  box-shadow: inset 0 0 3px #000000;
-}
-#donate #ecard label.checkbox {
-  margin-left: 0 !important;
-}
-#donate #ecard-info button {
-  margin-left: 30.4%;
-  font-weight: bold;
-  padding: 5px 10px;
-}
-#donate #ecard-info table {
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 10px;
-}
 #donate #email-opt-in,
 #donate #writeIn,
 #donate #autorepeat {
   margin-left: 6%;
-}
-#donate #gift-type {
-  display: inline-block;
-}
-#donate #gift-type label {
-  display: block;
-}
-#donate #honoree-information {
-  margin-top: 10px;
-  margin-left: 5%;
-}
-#donate #honoree-information input[type="text"],
-#donate #honoree-information input[type="date"],
-#donate #honoree-information textarea {
-  width: 83%;
-  height: inherit;
-}
-#donate #honoree-information label {
-  width: inherit;
-  display: inline-block;
-}
-#donate #honoree-information select {
-  width: 87.5%;
-  margin-right: 5%;
 }
 #donate #other {
   margin-top: 4px;
@@ -590,19 +519,6 @@
   vertical-align: top;
   width: 40%;
 }
-#donate .duration {
-  width: 100%;
-  display: block;
-  margin-top: 5px;
-}
-#donate .ecard-option {
-  padding: 0 30px 10px 10px;
-}
-#donate .ecard-option img {
-  width: 95px;
-  height: 95px;
-  background-color: #EBEBEB;
-}
 #donate .expiration {
   display: inline-block;
   width: 92.5%;
@@ -636,11 +552,6 @@
   display: inline-block;
   margin-top: -12px;
   vertical-align: bottom;
-}
-#donate .range-slider {
-  width: 45%;
-  text-align: center;
-  display: inline-block;
 }
 #donate .required {
   display: inline-block !important;
