@@ -2,7 +2,7 @@
 
   $(function() {
     
-    const NUMBER_OF_DESIGNATION_OPTIONS = 3;
+    var NUMBER_OF_DESIGNATION_OPTIONS = 3;
     
     luminateExtend({
         apiKey: '123456789', 
