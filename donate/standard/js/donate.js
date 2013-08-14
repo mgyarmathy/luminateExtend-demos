@@ -14,9 +14,7 @@
     luminateExtend.api({
       api: 'donation', 
       data: 'method=getDonationFormInfo&form_id=' + $('input[name="form_id"]').val(), 
-      callback: addFormInfo,
-      useHTTPS: true,
-      requestType: 'GET'
+      callback: addFormInfo
     });
 
 
@@ -147,7 +145,7 @@
             if( $('input[name="autorepeat"]').is(':checked') ){
                 params += 'level_autorepeat=true';
             }
-            luminateExtend.api.request({
+            luminateExtend.api({
                 api: 'CRDonationAPI', 
                 callback: donateCallback, 
                 form: '#donate_form',

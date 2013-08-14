@@ -239,7 +239,7 @@
             if( $('input[name="autorepeat"]').is(':checked') ){
                 params += 'level_autorepeat=true';
             }
-            luminateExtend.api.request({
+            luminateExtend.api({
                 api: 'CRDonationAPI', 
                 callback: donateCallback, 
                 form: '#donate_form',
