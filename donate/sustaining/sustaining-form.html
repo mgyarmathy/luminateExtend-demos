@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <title>Luminate Extend Donation Form Test</title>
     
-    <!--Bootstrap + page stylesheet -->
+    <!-- layout stylesheet -->
+    <link id="layout" rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="css/two-column.css">
     
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,11 +18,19 @@
 
     <!-- page-specific javascript -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script src="js/donate.js"></script>
+    <script type="text/javascript" src="js/donate.js"></script>
+    
+    <script type="text/javascript" src="js/modernizr.min.js"></script>
+    <script>
+        //test whether or not to use range slider polyfill
+        Modernizr.load({
+          test: Modernizr.inputtypes.range,
+          nope: 'js/html5slider.js'
+        });
+    </script>
 </head>
 
 <body>
-<div style="width: 1024px">
     <div id="donate">
         <div class="headline">
         <h4>Donate to Lorem Ipsum</h4>
@@ -35,26 +43,28 @@
         <form id="donate_form">
             <input name="method" type="hidden" value="donate" />
             <input name="v" type="hidden" value="1.0" />
-            <!-- add hidden input for extproc -->
             <input id="inptextproc" name="extproc" type="hidden" />
             <!-- add PayPal/Amazon SUCCESS redrect (must be static url) -->
             <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-success.html" />
             <!-- add PayPal/Amazon ERROR redrect must be static url) -->
             <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
-            <!-- Change/add donation form id and level ids below -->
-            <input type="hidden" name="form_id" value="13320">
+            <!-- change donation form id below -->
+            <input type="hidden" name="form_id" value="0000">
             <input type="hidden" name="validate" value="true">
             
-            <div class="form-section">
             <div class="column">
-            <fieldset id="donation-information">
+            <fieldset id="donation-information" class="form-section">
                 <h4>Donation Information</h4>
                 <label class="required">Gift Amount</label>
                 <fieldset id="donation-amounts">
                     <!-- donation levels generated here -->
                 </fieldset>
-                <hr>
+                <div id="total">Total Donation: $0.00</div>
             </fieldset>
+            </div>
+            
+            <div class="column">
+            <div class="form-section">
             <fieldset id="billing-information">
                 <h4>Billing Information</h4>
                 <label class="required">First Name</label>
@@ -150,7 +160,7 @@
                 <label class="required">Postal Code</label>
                 <input id="billing_address_zip" name="billing.address.zip" type="text" required>
                 <label class="required">Country</label>
-                <select id="billing_address_country" name="billing.address.country" required> 
+                <select id="billing_address_country" name="billing.address.country" required>
                     <option selected value="">Select</option>
                     <option value="United States">United States</option> 
                     <option value="United Kingdom">United Kingdom</option> 
@@ -403,9 +413,7 @@
                 <div class="checkbox-label">I would like to receive email
                 communications from this organization.</div>
             </fieldset>
-            </div>
-            <hr class="hide-two-column">
-            <div class="column">
+            <hr>
             <h4>Payment Information</h4>
             <fieldset id="payment-information">
                 <label>Payment Type</label> 
@@ -490,11 +498,10 @@
                 </button>
             </fieldset>
             </div>
-            </div> <!-- end .form-section -->
+            </div>
         </form>
         <div id="confirmation" class="hide"></div>
         <div id="sidebar-box" class="form-section"></div>
-    </div> <!-- end #donate -->    
-</div>
+    </div> <!-- end #donate -->
 </body>
 </html>

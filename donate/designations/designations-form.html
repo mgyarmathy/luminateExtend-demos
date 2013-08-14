@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
     <title>Luminate Extend Donation Form Test</title>
     
-    <!--Bootstrap + page stylesheet -->
+    <!-- layout stylesheet -->
+    <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link id="layout" rel="stylesheet" href="css/sidebar.css">
-    
+
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -18,20 +18,10 @@
 
     <!-- page-specific javascript -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/donate.js"></script>
-    
-    <script type="text/javascript" src="js/modernizr.min.js"></script>
-    <script>
-        //test whether or not to use range slider polyfill
-        Modernizr.load({
-          test: Modernizr.inputtypes.range,
-          nope: 'js/html5slider.js'
-        });
-    </script>
+    <script src="js/donate.js"></script>
 </head>
 
 <body>
-<div style="width: 1024px">
     <div id="donate">
         <div class="headline">
         <h4>Donate to Lorem Ipsum</h4>
@@ -42,29 +32,29 @@
         <img id="loading" src="img/ajax-loader.gif" style="margin: 30px auto 0; display:none;"/>
         </div>
         <form id="donate_form">
+        
             <input name="method" type="hidden" value="donate" />
             <input name="v" type="hidden" value="1.0" />
-            <!-- add hidden input for extproc -->
             <input id="inptextproc" name="extproc" type="hidden" />
             <!-- add PayPal/Amazon SUCCESS redrect (must be static url) -->
             <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-success.html" />
             <!-- add PayPal/Amazon ERROR redrect must be static url) -->
             <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
-            <!-- Change/add donation form id and level ids below -->
-            <input type="hidden" name="form_id" value="13720">
+            <!-- change donation form id below -->
+            <input type="hidden" name="form_id" value="0000">
             <input type="hidden" name="validate" value="true">
             
             <div class="column">
             <fieldset id="donation-information" class="form-section">
-                <h4>Donation Information</h4>
-                <label class="required">Gift Amount</label>
-                <fieldset id="donation-amounts">
-                    <!-- donation levels generated here -->
+                <fieldset id="designees">
+                    <h4>Allocate Your Gift</h4>
+                    <label class="subheading">You can allocate your gift to different
+designees using the drop-down lists below.</label>
+                    <!-- designees generated here -->
                 </fieldset>
                 <div id="total">Total Donation: $0.00</div>
             </fieldset>
             </div>
-            
             <div class="column">
             <div class="form-section">
             <fieldset id="billing-information">
@@ -498,13 +488,12 @@
                     Submit Donation 
                     <span style="font-size:26px; font-weight:normal;">&#187;</span>
                 </button>
+                </div>
             </fieldset>
-            </div>
             </div>
         </form>
         <div id="confirmation" class="hide"></div>
         <div id="sidebar-box" class="form-section"></div>
     </div> <!-- end #donate -->
-</div>
 </body>
 </html>

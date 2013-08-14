@@ -2,11 +2,12 @@
 
   $(function() {
   
+    /* set api key value and nonsecure/secure paths */
     luminateExtend({
         apiKey: '123456789', 
         path: {
-            nonsecure: 'http://vateam.convio.net/site/', 
-            secure: 'https://secure2.convio.net/vateam/site/'
+            nonsecure: 'http://www.myorganization.com/site/', 
+            secure: 'https://secure2.convio.net/myorg/site/'
       }
     });
 
