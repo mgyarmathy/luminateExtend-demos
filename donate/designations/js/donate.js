@@ -19,14 +19,14 @@
     });
     
     function addDesignees(data){
-        console.log(data);
+
         if(data.getDesigneesResponse && data.getDesigneesResponse.designee){
             var designeeOptions = luminateExtend.utils.ensureArray(data.getDesigneesResponse.designee),
                 optionsList = '<option value="">- Choose a Program -</option>';
             if(designeeOptions.length < NUMBER_OF_DESIGNATION_OPTIONS+1){
                 $.error('function addDesignees(data): NUMBER_OF_DESIGNATION_OPTIONS cannot be greater than ' + (designeeOptions.length-1) );
             }
-            console.log(designeeOptions);
+            
             $.each(designeeOptions, function(){
                 optionsList += '<option value="' + this.id + '">' + this.name + '</option>';
             });
@@ -77,7 +77,6 @@
     }
 
     function addFormInfo(data){
-        console.log(data);
         
         if (data.getDonationFormInfoResponse.supportsWriteInDesignation == 'true') {
             $('#designees').append( '<hr class="hide-mobile">'
@@ -243,7 +242,7 @@
     }
     
     function donateCallback(data) {
-        console.log(data);
+
         //for Paypal/Amazon payments
         if (data.donationResponse && data.donationResponse.redirect) {
             window.location.href = data.donationResponse.redirect.url;
