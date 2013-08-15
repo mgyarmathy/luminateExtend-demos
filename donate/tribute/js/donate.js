@@ -282,7 +282,7 @@
         }
     });
     
-    $('#ecard-preview').click(function(e){
+    $('#ecard-preview').click(function(e) {
         e.preventDefault();
         var url = luminateExtend.global.path.nonsecure
                 + 'Ecard?taf_preview=true&taf_popup_preview_donations=true&mfc_popup=true'
@@ -297,7 +297,7 @@
         return false;
     });
     
-    $('#makeTribute').on('change', function(){
+    $('#makeTribute').on('change', function() {
         if($(this).is(':checked')){
             $('#honoree-information').show();
         }
@@ -306,7 +306,7 @@
         }
     });
     
-    $('#ecard-send').on('change', function(){
+    $('#ecard-send').on('change', function() {
         if($(this).is(':checked')){
             $('input[name="ecard.send"]').val('true');
             $('#ecard-info').show();

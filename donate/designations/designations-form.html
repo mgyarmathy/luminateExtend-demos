@@ -5,7 +5,7 @@
     <title>Luminate Extend Donation Form Test</title>
     
     <!-- layout stylesheet -->
-    <link rel="stylesheet" href="css/mobile.css">
+    <link id="layout" rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
 
     <!--[if lt IE 9]>
@@ -32,14 +32,13 @@
         <img id="loading" src="img/ajax-loader.gif" style="margin: 30px auto 0; display:none;"/>
         </div>
         <form id="donate_form">
-        
             <input name="method" type="hidden" value="donate" />
             <input name="v" type="hidden" value="1.0" />
             <input id="inptextproc" name="extproc" type="hidden" />
             <!-- add PayPal/Amazon SUCCESS redrect (must be static url) -->
-            <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-success.html" />
+            <input id="finish_success_redirect" name="finish_success_redirect" type="hidden" value="http://www.mysite.com/designations/payment-success.html" />
             <!-- add PayPal/Amazon ERROR redrect must be static url) -->
-            <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://luminateextend.site44.com/donate/externalpayments/payment-error.html" />
+            <input id="finish_error_redirect" name="finish_error_redirect" type="hidden" value="http://www.mysite.com/designations/payment-error.html" />
             <!-- change donation form id below -->
             <input type="hidden" name="form_id" value="0000">
             <input type="hidden" name="validate" value="true">

@@ -18,7 +18,6 @@
     });
 
     function addFormInfo(data){
-        //console.log(data);
         
         //generate donation levels on the form
         var donationLevels = luminateExtend.utils.ensureArray(data.getDonationFormInfoResponse.donationLevels.donationLevel);
@@ -252,7 +251,6 @@
     }
     
     function donateCallback(data) {
-        console.log(data);
         //for Paypal/Amazon payments
         if (data.donationResponse && data.donationResponse.redirect) {
             window.location.href = data.donationResponse.redirect.url;
