@@ -1,7 +1,7 @@
-/*! jQuery UI - v1.10.3 - 2013-08-12
+/*! jQuery UI - v1.10.3 - 2013-08-15
 * http://jqueryui.com
 * Includes: jquery.ui.core.css, jquery.ui.datepicker.css
-* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS%2CTahoma%2CVerdana%2CArial%2Csans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=gloss_wave&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=highlight_soft&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=glass&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=glass&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=glass&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=highlight_soft&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=diagonals_thick&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=diagonals_thick&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=flat&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS%2CTahoma%2CVerdana%2CArial%2Csans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=%23009933&bgTextureHeader=gloss_wave&bgImgOpacityHeader=35&borderColorHeader=%23333&fcHeader=%23ffffff&iconColorHeader=%23ffffff&bgColorContent=%23eeeeee&bgTextureContent=highlight_soft&bgImgOpacityContent=100&borderColorContent=%23dddddd&fcContent=%23333333&iconColorContent=%23222222&bgColorDefault=%23f6f6f6&bgTextureDefault=glass&bgImgOpacityDefault=100&borderColorDefault=%23cccccc&fcDefault=%231c94c4&iconColorDefault=%23ef8c08&bgColorHover=%23fdf5ce&bgTextureHover=glass&bgImgOpacityHover=100&borderColorHover=%23fbcb09&fcHover=%23c77405&iconColorHover=%23ef8c08&bgColorActive=%23ffffff&bgTextureActive=glass&bgImgOpacityActive=65&borderColorActive=%23fbd850&fcActive=%23eb8f00&iconColorActive=%23ef8c08&bgColorHighlight=%23ffe45c&bgTextureHighlight=highlight_soft&bgImgOpacityHighlight=75&borderColorHighlight=%23fed22f&fcHighlight=%23363636&iconColorHighlight=%23228ef1&bgColorError=%23b81900&bgTextureError=diagonals_thick&bgImgOpacityError=18&borderColorError=%23cd0a0a&fcError=%23ffffff&iconColorError=%23ffd27a&bgColorOverlay=%23666666&bgTextureOverlay=diagonals_thick&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=%23000000&bgTextureShadow=flat&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
 * Copyright 2013 jQuery Foundation and other contributors Licensed MIT */
 
 /* Layout helpers
@@ -256,7 +256,7 @@
 }
 
 #ui-datepicker-div {
-        width: 266px;
+  width: 266px;
 }
 
 /* Component containers
@@ -284,8 +284,8 @@
 	color: #333333;
 }
 .ui-widget-header {
-	border: 1px solid #e78f08;
-	background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
+	border: 1px solid #333;
+	background: #009933 url(images/ui-bg_gloss-wave_35_009933_500x100.png) 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
 }
