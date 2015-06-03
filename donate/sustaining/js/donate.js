@@ -2,12 +2,11 @@
 
   $(function() {
   
-    /* set api key value and nonsecure/secure paths */
     luminateExtend({
         apiKey: '123456789', 
         path: {
-            nonsecure: 'http://www.myorganization.com/site/', 
-            secure: 'https://secure2.convio.net/myorg/site/'
+            nonsecure: 'http://vateam.convio.net/site/', 
+            secure: 'https://secure2.convio.net/vateam/site/'
       }
     });
 
@@ -18,6 +17,7 @@
     });
 
     function addFormInfo(data){
+        //console.log(data);
         
         //generate donation levels on the form
         var donationLevels = luminateExtend.utils.ensureArray(data.getDonationFormInfoResponse.donationLevels.donationLevel);
@@ -238,7 +238,7 @@
             if( $('input[name="autorepeat"]').is(':checked') ){
                 params += 'level_autorepeat=true';
             }
-            luminateExtend.api({
+            luminateExtend.api.request({
                 api: 'CRDonationAPI', 
                 callback: donateCallback, 
                 form: '#donate_form',
@@ -251,6 +251,7 @@
     }
     
     function donateCallback(data) {
+        console.log(data);
         //for Paypal/Amazon payments
         if (data.donationResponse && data.donationResponse.redirect) {
             window.location.href = data.donationResponse.redirect.url;

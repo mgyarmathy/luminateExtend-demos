@@ -4,12 +4,11 @@
     
     var NUMBER_OF_DESIGNATION_OPTIONS = 3;
     
-    /* set api key value and nonsecure/secure paths */
     luminateExtend({
         apiKey: '123456789', 
         path: {
-            nonsecure: 'http://www.myorganization.com/site/', 
-            secure: 'https://secure2.convio.net/myorg/site/'
+            nonsecure: 'http://vateam.convio.net/site/', 
+            secure: 'https://secure2.convio.net/vateam/site/'
       }
     });
     
@@ -230,7 +229,7 @@
             if( $('input[name="autorepeat"]').is(':checked') ){
                 params += 'level_autorepeat=true';
             }
-            luminateExtend.api({
+            luminateExtend.api.request({
                 api: 'CRDonationAPI', 
                 callback: donateCallback, 
                 form: '#donate_form',

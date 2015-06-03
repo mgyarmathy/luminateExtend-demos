@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Luminate Extend API Donation Forms</title>
+    
+    <!--Bootstrap + page stylesheet -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+    
+    <style>
+        #main {
+          margin-top: 15px;
+          margin-bottom: 20px;
+          padding: 20px 0px 20px; 
+          background-color: #FFF;
+        }
+        
+        #screenshot {
+          min-height: 1024px;
+        }
+        
+        .btn-link {
+          font-size: 18px;
+        }
+        
+        .btn-link.active {
+          color: #333;
+          background-color: #FFF;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+        }
+        
+        .btn-link.active:hover {
+          color: #333;
+          text-decoration: none;
+        }
+    </style>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+</head>
+<body>
+<p style="font-size: 12px">Source: <a href="https://github.com/mgyarmathy/luminateExtend-demos">https://github.com/mgyarmathy/luminateExtend-demos</a></p>
+  <div id="main" class="container hero-unit">
+    <div class="row text-center">
+      <div class="span12">
+        <h1>API Donation Forms</h1>
+        <nav>
+          <div id="forms">
+            <button class="btn btn-link active" data-form="standard">Standard</button>
+            |
+            <button class="btn btn-link" data-form="tribute">Tribute</button>
+            |
+            <button class="btn btn-link" data-form="designations">Designations</button>
+            |
+            <button class="btn btn-link" data-form="sustaining">Sustaining</button>
+          </div>
+          <div id="layouts" style="padding: 20px;">
+              Layouts: 
+              <button id="mobile" class="btn btn-primary active">Mobile</button>
+              <button id="fullpage" class="btn btn-primary">Full Page</button>
+              <button id="sidebar" class="btn btn-primary">Sidebar</button>
+              <button id="twocolumn" class="btn btn-primary">2-Column</button>
+          </div>
+          </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div id="screenshot" class="span12 text-center">
+        <a href="standard/mobile-preview.html"><img src="_img/standard-mobile.png" /></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- scripts for layout preview purposes -->
+  <script>
+  $(document).ready(function(){
+      var form = 'standard',
+          layout = 'mobile';
+          
+      $('#forms button').click(function() {
+        $('#forms button').removeClass('active');
+        $(this).addClass('active');
+        form = $(this).data('form');
+        updateScreenshot();
+      });
+          
+      $('#layouts button').click(function() {
+        $('#layouts button').removeClass('active');
+        $(this).addClass('active');
+        layout = $(this).attr('id');
+        updateScreenshot();
+      });
+      
+      function updateScreenshot() {
+        $('#screenshot').html( '<a href="'+form+'/'+layout+'-preview.html">'
+                             +   '<img src="_img/'+form+'-'+layout+'.png" />'
+                             + '</a>'
+                             );
+      }
+  });
+  </script>
+</body>
+</html>

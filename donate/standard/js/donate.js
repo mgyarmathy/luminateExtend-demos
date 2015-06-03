@@ -2,19 +2,20 @@
 
   $(function() {
   
-    /* set api key value and nonsecure/secure paths */
     luminateExtend({
         apiKey: '123456789', 
         path: {
-            nonsecure: 'http://www.myorganization.com/site/', 
-            secure: 'https://secure2.convio.net/myorg/site/'
+            nonsecure: 'http://vateam.convio.net/site/', 
+            secure: 'https://secure2.convio.net/vateam/site/'
       }
     });
 
     luminateExtend.api({
       api: 'donation', 
       data: 'method=getDonationFormInfo&form_id=' + $('input[name="form_id"]').val(), 
-      callback: addFormInfo
+      callback: addFormInfo,
+      useHTTPS: true,
+      requestType: 'GET'
     });
 
 
@@ -145,7 +146,7 @@
             if( $('input[name="autorepeat"]').is(':checked') ){
                 params += 'level_autorepeat=true';
             }
-            luminateExtend.api({
+            luminateExtend.api.request({
                 api: 'CRDonationAPI', 
                 callback: donateCallback, 
                 form: '#donate_form',
